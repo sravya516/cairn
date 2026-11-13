@@ -38,7 +38,7 @@ jobs:
   e2e:
     name: Offline end-to-end test (real browser)
     runs-on: ubuntu-latest
-    # This job has only been exercised on Windows during development, so it reports but does not block deploys.
+    # Passed on its first run. It stays non-blocking because real-browser tests can be flaky on shared CI runners.
     continue-on-error: true
     steps:
       - uses: actions/checkout@v4

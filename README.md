@@ -4,6 +4,8 @@ Cairn is a free, installable web app (a PWA) for emergency preparedness. After t
 
 > **If you are in a life-threatening emergency in the United States, call 911.** Cairn is educational. It does not replace emergency services, professional medical care or instructions from local officials.
 
+> **Live beta:** <https://sravya516.github.io/cairn/>
+
 > Cairn is an independent project. It is **not affiliated with, endorsed by or sponsored by** FEMA, Ready.gov, the American Red Cross, the CDC or any other organization it cites as a source.
 
 - **No account, no login, no tracking, no ads, no paid services.** Your data never leaves your device.
@@ -21,7 +23,7 @@ This project was built and tested on Windows. Everything below is marked honestl
 | WCAG AA colour contrast, both themes | Passing (computed from the stylesheet) |
 | **Installing on a real iPhone**, home-screen standalone look, launch screens, iOS storage behaviour, print/PDF from Safari, saving backups to Files | **Not tested.** No iPhone was available. Use [docs/IPHONE_TEST_PLAN.md](docs/IPHONE_TEST_PLAN.md) |
 | **Medical and safety content** | Written from general knowledge of public guidance. **Not professionally reviewed. No source has been verified against its live page** (every "last verified" cell in [CONTENT_SOURCES.md](CONTENT_SOURCES.md) is `—`). Verify the safety-critical table before relying on it |
-| The GitHub Actions workflow | Written but **never run** (no repository existed). The optional Linux end-to-end job is untested |
+| GitHub Actions workflow and live site | Ran successfully on first push (2026-11-13): unit tests, the Linux real-browser offline test and the deploy all passed, and every cached file on the live site matches its checksum. **A real device has still not opened the live site** |
 
 A full criterion-by-criterion audit is in [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md).
 
