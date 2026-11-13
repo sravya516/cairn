@@ -1,0 +1,20 @@
+{
+  "name": "cairn-app",
+  "version": "1.0.0",
+  "description": "Cairn — a complete offline emergency preparedness PWA. Zero runtime dependencies.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "icons": "node scripts/make-icons.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs dist 4173",
+    "serve:subpath": "node scripts/serve.mjs dist 4174 /cairn/",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "e2e": "node scripts/e2e-offline.mjs",
+    "e2e:subpath": "node scripts/e2e-offline.mjs --base-path cairn",
+    "sources": "node scripts/sources-report.mjs",
+    "check": "npm run build && npm test"
+  }
+}

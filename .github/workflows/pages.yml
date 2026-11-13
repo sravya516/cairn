@@ -1,0 +1,78 @@
+name: Test and deploy to GitHub Pages
+
+# Free for public repositories. Cairn needs no secrets, no paid services and no build-time network access
+# beyond fetching the standard GitHub actions below.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Unit tests, content checks, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # The app has zero runtime or dev dependencies, so no package-install step is needed.
+      - name: Unit and content tests
+        run: npm test
+      - name: CONTENT_SOURCES.md is up to date
+        run: npm run sources -- --check
+      - name: Build
+        run: npm run build
+
+  e2e:
+    name: Offline end-to-end test (real browser)
+    runs-on: ubuntu-latest
+    # This job has only been exercised on Windows during development, so it reports but does not block deploys.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run the offline test at the site root
+        run: node scripts/e2e-offline.mjs
+        env:
+          CI: 'true'
+          BROWSER: /usr/bin/google-chrome
+      - name: Run the offline test at a project-site subpath (/cairn/)
+        run: node scripts/e2e-offline.mjs --base-path cairn
+        env:
+          CI: 'true'
+          BROWSER: /usr/bin/google-chrome
+
+  deploy:
+    name: Deploy
+    needs: test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

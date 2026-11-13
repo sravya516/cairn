@@ -1,0 +1,61 @@
+[
+  {
+    "id": "smoke", "group": "Fire, weather and disasters", "title": "Wildfire Smoke and Bad Air", "icon": "fire", "severity": "urgent",
+    "summary": "Check the air quality. Stay in with clean air. Use a well-fitting N95 if you must go out.",
+    "steps": [
+      "Check the Air Quality Index (AirNow or local alerts). Orange (101+) or worse: sensitive people stay indoors. Red (151+): everyone cut back outdoors.",
+      "Keep windows and doors closed. Run air conditioning on recirculate with a clean filter. No fans that pull in outside air.",
+      "Make a clean-air room: one room, door closed, a HEPA air cleaner running.",
+      "Going out: wear a tight-fitting N95 respirator. Cloth and surgical masks do not stop smoke particles.",
+      "Skip hard exercise. Avoid candles, gas stoves, frying and vacuuming without a HEPA filter.",
+      "Trouble breathing, chest pain or dizziness: follow your asthma plan and call 911 if severe."
+    ],
+    "dont": ["Do not open windows to air out the house while smoke lasts.", "Do not use ozone generators."],
+    "warn": ["Children, older adults, pregnant people and anyone with heart or lung disease are at higher risk."],
+    "guide": "wildfire-smoke-air-quality", "sources": ["epa", "cdc", "usfs"], "tags": ["wildfire smoke", "air quality", "AQI", "N95", "smoke", "haze", "clean air"]
+  },
+  {
+    "id": "boating", "group": "Fire, weather and disasters", "title": "Boat Emergency", "icon": "drop", "severity": "life",
+    "summary": "Life jackets on. Stay with a capsized boat. Call for help on VHF 16 or 911. Reach or throw, do not jump in.",
+    "steps": [
+      "Everyone puts on a life jacket now.",
+      "Call for help: VHF channel 16, say Mayday three times, then boat name, position, problem and number aboard. Or call 911 on a phone.",
+      "Capsized: stay with the boat and climb onto it if you can. It floats and is easier to see.",
+      "Person overboard: shout, point and keep eyes on them, throw anything that floats, slow down and turn back. Reach or throw. Do not jump in.",
+      "Cold water: control your breathing first. Keep your life jacket on and curl up to save heat.",
+      "Fuel smell or fire: stop the engine and fuel, move people upwind, use an extinguisher. Keep away from engine exhaust."
+    ],
+    "dont": ["Do not try to swim for shore unless it is very close.", "Do not go back in for gear."],
+    "warn": ["Carbon monoxide builds up near engines and generators on boats."],
+    "guide": "boating-marine-emergencies", "sources": ["uscg", "nws", "red-cross"], "tags": ["boat", "mayday", "capsized", "overboard", "VHF 16", "life jacket", "Coast Guard"]
+  },
+  {
+    "id": "electric-shock", "group": "Life-threatening medical", "title": "Electric Shock or Lightning Strike", "icon": "power", "severity": "life",
+    "summary": "Do not touch until the power is off. Call 911. Lightning victims carry no charge: start CPR.",
+    "steps": [
+      "Do not touch the person until the power is off. Switch it off, or push the source away with something dry like wood. Downed lines: stay 35 feet back.",
+      "Call 911.",
+      "Not breathing normally: start CPR and use an AED.",
+      "Lightning strike: the person carries no charge, so it is safe to touch. If several people were struck, help the ones who look lifeless first.",
+      "Cool burns with running water and cover loosely.",
+      "Keep them warm and lying down. Everyone shocked or struck needs medical evaluation, even if they feel fine."
+    ],
+    "dont": ["Do not touch someone who may still be in contact with a live wire.", "Do not use anything wet or metal to move a wire."],
+    "warn": ["Electric shock can cause a delayed, dangerous heart rhythm."],
+    "guide": "electric-shock-lightning-injury", "sources": ["nws", "osha", "red-cross", "aha"], "tags": ["electric shock", "electrocution", "lightning strike", "power line", "shocked"]
+  },
+  {
+    "id": "abroad", "group": "Get help", "title": "Emergency Abroad: Which Number?", "icon": "phone", "severity": "info",
+    "summary": "Emergency numbers differ by country. Look yours up before you travel. Try 112 if unsure.",
+    "steps": [
+      "112 is the emergency number across the EU and in many other countries. 911: U.S., Canada, Mexico. 999: UK. 000: Australia. 111: New Zealand. 110 police and 119 fire or ambulance: Japan.",
+      "Say where you are first, in simple words. Ask for an English speaker.",
+      "Contact your insurer's assistance line early for medical emergencies.",
+      "Lost passport, arrest or serious injury: contact your embassy or consulate.",
+      "Disaster or unrest: follow local authorities, move to a safe place and message family."
+    ],
+    "dont": ["Do not assume the number is 911.", "Do not rely on one phone or one card. Carry paper copies."],
+    "warn": ["Numbers change. Confirm them before you travel and save them on paper and in your phone."],
+    "guide": "traveling-abroad-emergencies", "sources": ["state", "cdc", "ready-gov"], "tags": ["abroad", "international", "112", "emergency number", "embassy", "travel"]
+  }
+]

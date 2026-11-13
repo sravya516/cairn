@@ -1,0 +1,315 @@
+[
+  {
+    "id": "call-911", "group": "Get help", "title": "Call 911", "icon": "phone", "severity": "life",
+    "summary": "For any life-threatening emergency in the U.S.: not breathing, severe bleeding, chest pain, stroke signs, fire, immediate danger.",
+    "steps": [
+      "Get to a safe place if you can do it without delay.",
+      "Call 911. If you cannot speak, text 911 where supported: call if you can, text if you can't.",
+      "Say WHERE you are first: address, cross streets, landmarks.",
+      "Say what happened and how many people are hurt.",
+      "Stay on the line. Follow the dispatcher's instructions.",
+      "If the call fails: try again, move to a spot with better signal, or send a text."
+    ],
+    "dont": ["Do not hang up before the dispatcher says to.", "Do not call 911 to ask about power outages or storm information."],
+    "warn": ["Texting to 911 is not available everywhere. Voice calls are still the most reliable."],
+    "guide": "contact-planning", "sources": ["ready-gov", "red-cross"], "tags": ["911", "emergency call", "dispatcher", "text 911", "help"]
+  },
+  {
+    "id": "bleeding", "group": "Life-threatening medical", "title": "Severe Bleeding", "icon": "medical", "severity": "life",
+    "summary": "Call 911, press hard on the wound, use a tourniquet for life-threatening limb bleeding.",
+    "steps": [
+      "Call 911 (or have someone call). Put on gloves if you have them.",
+      "Press hard directly on the wound with a clean cloth. Use both hands.",
+      "Soaked through? Do NOT remove it. Add more cloth and keep pressing.",
+      "Limb bleeding you cannot control: put a tourniquet 2–3 inches above the wound, not on a joint. Tighten until bleeding stops.",
+      "Write down the time the tourniquet went on. Leave it on.",
+      "Keep the person lying down and warm. Watch for shock."
+    ],
+    "dont": ["Do not remove objects stuck in the wound.", "Do not loosen or remove a tourniquet.", "Do not stop pressing to look at the wound."],
+    "warn": ["Pale, cold, clammy, confused or faint means shock. Keep calling for help."],
+    "guide": "bleeding-control", "sources": ["red-cross", "aha"], "tags": ["blood", "hemorrhage", "tourniquet", "wound", "stop the bleed"]
+  },
+  {
+    "id": "cpr", "group": "Life-threatening medical", "title": "No Breathing: CPR and AED", "icon": "medical", "severity": "life",
+    "summary": "Unresponsive and not breathing normally: call 911 and start hands-only CPR.",
+    "steps": [
+      "Tap shoulders and shout. Not responding and not breathing normally (or only gasping)?",
+      "Call 911 and put the phone on speaker. Send someone for an AED.",
+      "Place the heel of your hand on the center of the chest, other hand on top.",
+      "Push hard and fast: at least 2 inches (5 cm) deep, 100 to 120 per minute. Let the chest rise fully.",
+      "AED arrives: turn it on and follow the voice prompts. Keep clear while it analyzes or shocks.",
+      "Do not stop until help takes over or the person moves."
+    ],
+    "dont": ["Do not stop to check for a pulse for more than a few seconds.", "Do not worry about hurting them. Not doing CPR is worse."],
+    "warn": ["Children and infants: if trained, give breaths too. Infant: two fingers, about 1.5 inches (4 cm) deep."],
+    "guide": "cpr-aed", "sources": ["aha", "red-cross"], "tags": ["cpr", "cardiac arrest", "aed", "defibrillator", "chest compressions", "not breathing"]
+  },
+  {
+    "id": "choking", "group": "Life-threatening medical", "title": "Choking", "icon": "medical", "severity": "life",
+    "summary": "Cannot speak, cough or breathe: call 911 and give back blows and thrusts.",
+    "steps": [
+      "Can they cough hard? Let them cough. Stay with them.",
+      "Cannot speak, cough or breathe? Have someone call 911.",
+      "Adult or child: Red Cross teaches 5 back blows, then 5 abdominal thrusts, and repeat. (AHA teaches abdominal thrusts.)",
+      "Infant under 1: face down on your forearm, 5 back blows, then face up, 5 chest thrusts with two fingers.",
+      "Pregnant or very large person: do chest thrusts, not abdominal.",
+      "If they pass out: lay them down and start CPR. Look in the mouth before breaths."
+    ],
+    "dont": ["Do not do blind finger sweeps.", "Do not give back blows to someone who is coughing forcefully."],
+    "warn": ["Anyone who was choked should be checked by a medical professional afterward."],
+    "guide": "choking", "sources": ["red-cross", "aha"], "tags": ["choking", "heimlich", "airway", "infant choking", "back blows"]
+  },
+  {
+    "id": "anaphylaxis", "group": "Life-threatening medical", "title": "Severe Allergic Reaction", "icon": "medical", "severity": "life",
+    "summary": "Trouble breathing or swelling after a sting, food or medication: epinephrine first, then 911.",
+    "steps": [
+      "Use the person's epinephrine auto-injector RIGHT AWAY if they have one. Follow the device instructions.",
+      "Call 911, even if they seem better.",
+      "Lie flat with legs raised. Sit up if breathing is hard. Side if vomiting.",
+      "Another dose may be needed. Follow the prescriber's and dispatcher's instructions.",
+      "Stay with them. If they stop breathing, start CPR.",
+      "Give the used injector to the responders."
+    ],
+    "dont": ["Do not wait to see if it gets better.", "Do not rely on an antihistamine alone.", "Do not let them stand or walk."],
+    "warn": ["Signs: swollen lips or tongue, wheezing, hives all over, dizziness, vomiting after exposure."],
+    "guide": "anaphylaxis", "sources": ["red-cross", "aha"], "tags": ["allergy", "anaphylaxis", "epinephrine", "epipen", "sting", "swelling"]
+  },
+  {
+    "id": "stroke-heart", "group": "Life-threatening medical", "title": "Stroke or Heart Attack", "icon": "medical", "severity": "life",
+    "summary": "Face drooping, weak arm, slurred speech, or chest pressure: call 911 immediately.",
+    "steps": [
+      "Stroke, BE FAST: Balance loss, Eyes (vision loss), Face droop, Arm weakness, Speech trouble, Time to call 911.",
+      "Heart attack: chest pressure or pain, short of breath, cold sweat, pain in arm, jaw or back.",
+      "Call 911 now. Do not drive yourself.",
+      "Note the time the symptoms began.",
+      "Unlock the door. Sit or lie comfortably. Stay calm.",
+      "Follow the dispatcher. If the person collapses and is not breathing normally, start CPR."
+    ],
+    "dont": ["Do not wait to see if it passes.", "Do not give medicine unless the dispatcher or clinician tells you to."],
+    "warn": ["Women, older adults and people with diabetes may have milder or unusual signs."],
+    "guide": "stroke-heart-attack", "sources": ["aha", "cdc"], "tags": ["stroke", "heart attack", "be fast", "chest pain", "face drooping"]
+  },
+  {
+    "id": "burns", "group": "Life-threatening medical", "title": "Burns", "icon": "fire", "severity": "urgent",
+    "summary": "Cool with cool running water for at least 10 minutes. Know which burns need 911.",
+    "steps": [
+      "Stop the burning. Remove rings and clothing near the burn, unless stuck.",
+      "Cool with cool (not ice-cold) running water for at least 10 minutes, up to about 20.",
+      "Cover loosely with a clean nonstick dressing or clean plastic wrap.",
+      "Keep the person warm. Watch for shock.",
+      "Chemical burn: flush with lots of running water for at least 20 minutes.",
+      "Call 911 for burns to face, hands, feet, groin or joints, large or deep burns, and chemical or electrical burns."
+    ],
+    "dont": ["Do not use ice, butter, oil or toothpaste.", "Do not break blisters.", "Do not pull off stuck clothing."],
+    "warn": ["Electrical burns need medical evaluation. Make sure power is off before touching the person."],
+    "guide": "burns", "sources": ["red-cross", "cdc"], "tags": ["burn", "scald", "chemical burn", "fire injury"]
+  },
+  {
+    "id": "poisoning", "group": "Life-threatening medical", "title": "Poisoning or Overdose", "icon": "alert", "severity": "urgent",
+    "summary": "Call Poison Help 1-800-222-1222, or 911 if the person is unconscious, seizing or struggling to breathe.",
+    "steps": [
+      "Unconscious, seizing or hard to wake, or struggling to breathe? Call 911.",
+      "Otherwise call Poison Help: 1-800-222-1222 (U.S., free, 24 hours).",
+      "Have the container, the person's age and weight, and the time ready.",
+      "Gas or fumes: get to fresh air first.",
+      "Skin: remove contaminated clothing and rinse with running water for 15 to 20 minutes.",
+      "Eyes: flush gently with clean water for at least 15 minutes."
+    ],
+    "dont": ["Do not make the person vomit.", "Do not give anything to eat or drink unless told to."],
+    "warn": ["If the line is busy or there is no service, call 911."],
+    "guide": "poisoning", "sources": ["cdc", "red-cross"], "tags": ["poison", "overdose", "swallowed", "chemical", "poison control"]
+  },
+  {
+    "id": "carbon-monoxide", "group": "Fire, weather and disasters", "title": "Carbon Monoxide", "icon": "alert", "severity": "life",
+    "summary": "Alarm sounding, or headache, dizziness and nausea near a generator, stove or heater: get outside now.",
+    "steps": [
+      "Get everyone outside into fresh air immediately. Do not stop to collect things.",
+      "Call 911 from outside.",
+      "Do not go back in until responders say it is safe.",
+      "Everyone exposed needs medical care, even if they feel better.",
+      "Later: find and fix the source before using it again."
+    ],
+    "dont": ["Do not run generators, grills, camp stoves or heaters indoors, in garages or near windows.", "Do not rely on opening a window."],
+    "warn": ["Carbon monoxide has no smell. People who are asleep may not wake up. Use battery-powered CO alarms."],
+    "guide": "ventilation-co-safety", "sources": ["cdc", "cpsc"], "tags": ["carbon monoxide", "CO", "generator", "alarm", "fumes", "poisoning"]
+  },
+  {
+    "id": "house-fire", "group": "Fire, weather and disasters", "title": "House Fire", "icon": "fire", "severity": "life",
+    "summary": "Get out, stay out, call 911 from outside.",
+    "steps": [
+      "Get out. Use your planned exit. Take no belongings.",
+      "Stay low under smoke where the air is cleaner.",
+      "Feel doors with the back of your hand. Hot? Use another way out.",
+      "Close doors behind you to slow the fire.",
+      "Go to your outside meeting place. Count everyone.",
+      "Call 911 from outside. Tell firefighters if anyone is missing."
+    ],
+    "dont": ["Do not go back inside for people, pets or things.", "Do not use elevators."],
+    "warn": ["Clothes on fire: stop, drop, roll. Trapped: close the door, seal gaps with towels, signal at a window, call 911."],
+    "guide": "fire-prevention-escape", "sources": ["nfpa", "ready-gov"], "tags": ["fire", "smoke", "escape", "stop drop roll", "burning house"]
+  },
+  {
+    "id": "tornado", "group": "Fire, weather and disasters", "title": "Tornado Warning", "icon": "storm", "severity": "life",
+    "summary": "Take shelter now: lowest floor, interior room, no windows.",
+    "steps": [
+      "Go now to a basement, storm cellar or lowest-floor interior room.",
+      "Stay away from windows, doors and outside walls.",
+      "Get low. Cover your head and neck with your arms, a mattress, blankets or a helmet.",
+      "Mobile or manufactured home? Leave and get to a sturdy building before the storm.",
+      "In a vehicle: do not try to outrun it in traffic. Reach a sturdy building if you can. Otherwise park, buckle up, head below the windows, cover your head.",
+      "Stay put until the warning ends. Then check for injuries and hazards."
+    ],
+    "dont": ["Do not open windows.", "Do not shelter under an overpass.", "Do not wait to see it."],
+    "warn": ["Watch means be ready. Warning means a tornado is happening or imminent."],
+    "guide": "tornadoes", "sources": ["nws", "fema"], "tags": ["tornado", "twister", "warning", "severe weather", "shelter"]
+  },
+  {
+    "id": "lightning", "group": "Fire, weather and disasters", "title": "Thunderstorm and Lightning", "icon": "storm", "severity": "urgent",
+    "summary": "When thunder roars, go indoors. Wait 30 minutes after the last thunder.",
+    "steps": [
+      "Go inside a fully enclosed building or a hard-topped vehicle with the windows up.",
+      "Stay away from windows, plumbing, corded phones and plugged-in electronics.",
+      "No showers, baths or dishes during the storm.",
+      "Wait 30 minutes after the last thunder before going back out.",
+      "Caught outside: avoid open fields, hilltops, tall isolated trees, water and metal. No place outdoors is safe."
+    ],
+    "dont": ["Do not shelter under a tree or in a tent, shed or pavilion.", "Do not go back out as soon as the rain stops."],
+    "warn": ["Lightning victims do not carry a charge. Call 911 and start CPR if needed."],
+    "guide": "lightning", "sources": ["nws", "noaa"], "tags": ["lightning", "thunder", "thunderstorm", "storm", "struck"]
+  },
+  {
+    "id": "flood", "group": "Fire, weather and disasters", "title": "Flood", "icon": "drop", "severity": "life",
+    "summary": "Move to higher ground. Turn around, don't drown.",
+    "steps": [
+      "Move to higher ground now. Do not wait for instructions if water is rising.",
+      "Never walk, swim or drive through floodwater. Six inches of moving water can knock you down.",
+      "If trapped in a building, go to the highest floor. Do not go into a closed attic. Call 911 and signal for help.",
+      "Car in rising water: leave it and move to higher ground if you can do so safely.",
+      "Stay off bridges over fast water. Stay away from downed power lines.",
+      "After: floodwater is contaminated. Do not drink or use tap water until cleared."
+    ],
+    "dont": ["Do not touch electrical equipment if you are wet or standing in water.", "Do not drive around barricades."],
+    "warn": ["Flash floods can arrive in minutes. A watch means be prepared; a warning means move now."],
+    "guide": "flooding", "sources": ["nws", "fema"], "tags": ["flood", "flash flood", "water rising", "high ground", "turn around dont drown"]
+  },
+  {
+    "id": "earthquake", "group": "Fire, weather and disasters", "title": "Earthquake", "icon": "alert", "severity": "life",
+    "summary": "Drop, Cover and Hold On. Do not run outside.",
+    "steps": [
+      "DROP to your hands and knees.",
+      "COVER your head and neck under a sturdy table, or against an interior wall.",
+      "HOLD ON until the shaking stops.",
+      "In bed: stay there and cover your head with a pillow.",
+      "Outdoors: move to an open area away from buildings, trees and wires. Driving: pull over, stay in the car.",
+      "After: check for injuries and gas leaks. Expect aftershocks and repeat Drop, Cover, Hold On."
+    ],
+    "dont": ["Do not run outside during the shaking.", "Do not stand in a doorway.", "Do not use matches or lighters if you smell gas."],
+    "warn": ["Near the coast: if shaking was strong or lasted 20 seconds or more, or you get a tsunami warning, move inland or to high ground on foot at once."],
+    "guide": "earthquakes", "sources": ["usgs", "ready-gov"], "tags": ["earthquake", "shaking", "drop cover hold on", "aftershock", "tsunami"]
+  },
+  {
+    "id": "wildfire", "group": "Fire, weather and disasters", "title": "Wildfire", "icon": "fire", "severity": "life",
+    "summary": "When told to evacuate, leave immediately. Protect your lungs from smoke.",
+    "steps": [
+      "Leave immediately when told. Do not wait to see flames.",
+      "Take go-bags, medications, documents, pets and chargers.",
+      "Wear an N95 respirator and long sleeves if smoke is present.",
+      "If time allows: close windows and doors, turn off gas, turn on outdoor lights.",
+      "Follow official routes. Drive with headlights on.",
+      "Trapped: call 911, stay in the car or a clear area, cover up with blankets. Do not run through flames."
+    ],
+    "dont": ["Do not use cloth or surgical masks for smoke.", "Do not return until officials say it is safe."],
+    "warn": ["Burned slopes can flood or slide when it rains. Stay alert after the fire."],
+    "guide": "wildfires", "sources": ["ready-gov", "fema", "usfs"], "tags": ["wildfire", "smoke", "evacuate", "ember", "fire"]
+  },
+  {
+    "id": "hurricane", "group": "Fire, weather and disasters", "title": "Hurricane", "icon": "storm", "severity": "urgent",
+    "summary": "Leave when ordered. Storm surge is the deadliest part.",
+    "steps": [
+      "Know your evacuation zone. Leave when told, before the winds arrive.",
+      "Staying in a safe building: go to an interior room on the lowest floor that will not flood, away from windows.",
+      "Keep a battery radio on. Do not go outside during the calm eye.",
+      "Water coming in? Move to an upper floor. Take tools to exit an attic.",
+      "Never use a generator, grill or camp stove indoors.",
+      "After: stay out of floodwater and away from downed lines."
+    ],
+    "dont": ["Do not wait to see how bad it gets.", "Do not drive through water."],
+    "warn": ["The category number measures wind only. Surge and rain cause most deaths."],
+    "guide": "hurricanes", "sources": ["noaa", "nws", "fema"], "tags": ["hurricane", "storm surge", "cyclone", "tropical storm", "evacuation zone"]
+  },
+  {
+    "id": "heat", "group": "Fire, weather and disasters", "title": "Heat Stroke and Heat Exhaustion", "icon": "sun", "severity": "life",
+    "summary": "Confusion, very hot skin or fainting in the heat: call 911 and cool the person fast.",
+    "steps": [
+      "Heat stroke signs: 103°F (39.4°C) or higher, confusion, hot red or damp skin, fainting. Call 911.",
+      "Move the person to shade or air conditioning.",
+      "Cool quickly: cold water or ice bath if possible, wet sheets, ice packs at neck, armpits and groin, fanning.",
+      "Do not give drinks if they are confused or unconscious.",
+      "Heat exhaustion (heavy sweating, cool clammy skin, nausea): move to a cool place, loosen clothes, cool cloths, sip water.",
+      "Get medical help if vomiting or not better in about an hour."
+    ],
+    "dont": ["Never leave a child, pet or anyone in a parked car.", "Do not wait for symptoms to get worse."],
+    "warn": ["Heat stroke can cause permanent harm or death. Treat it as an emergency every time."],
+    "guide": "heat-illness", "sources": ["cdc", "nws"], "tags": ["heat stroke", "heat exhaustion", "hot", "heat wave", "overheating"]
+  },
+  {
+    "id": "cold", "group": "Fire, weather and disasters", "title": "Hypothermia and Frostbite", "icon": "alert", "severity": "urgent",
+    "summary": "Get out of the cold, remove wet clothes and warm the center of the body.",
+    "steps": [
+      "Call 911 for severe cases: confusion, very slow breathing, no shivering, unresponsive.",
+      "Move to a warm, dry place. Handle gently.",
+      "Remove wet clothing. Cover with dry blankets, including head and neck.",
+      "Warm the chest, neck, head and groin first, using warm (not hot) wrapped packs or body heat.",
+      "If alert and able to swallow: warm, sweet, non-alcoholic drinks.",
+      "Frostbite: warm in warm (not hot) water. Do not rub. Seek medical care."
+    ],
+    "dont": ["Do not give alcohol.", "Do not use direct heat like heating pads or fires.", "Do not rub arms and legs."],
+    "warn": ["Hypothermia can happen indoors in a cold house and in cool wet weather above freezing."],
+    "guide": "hypothermia", "sources": ["cdc", "red-cross"], "tags": ["hypothermia", "frostbite", "cold", "freezing", "shivering"]
+  },
+  {
+    "id": "power-outage", "group": "Home and getting out", "title": "Power Outage", "icon": "power", "severity": "info",
+    "summary": "Light, food safety, heat and carbon monoxide are the big four.",
+    "steps": [
+      "Report the outage to your utility. Check on neighbors.",
+      "Use flashlights, not candles.",
+      "Keep the fridge and freezer closed: about 4 hours in the fridge, about 48 hours in a full freezer.",
+      "Generators go outdoors only, at least 20 feet from the house, with CO alarms inside.",
+      "Downed power line: stay at least 35 feet away and call 911.",
+      "Medical equipment needing power? Use your backup plan or go to a place with power."
+    ],
+    "dont": ["Do not use grills, camp stoves or generators indoors.", "Do not eat perishable food that was above 40°F (4°C) for over 2 hours."],
+    "warn": ["Cold or hot homes are dangerous for babies, older adults and people with health conditions. Leave if you cannot stay safe."],
+    "guide": "extended-power-outages", "sources": ["ready-gov", "usda", "cpsc"], "tags": ["power outage", "blackout", "no electricity", "generator", "refrigerator"]
+  },
+  {
+    "id": "evacuate", "group": "Home and getting out", "title": "Evacuate Now", "icon": "car", "severity": "urgent",
+    "summary": "Told to leave? Go now with people, pets, medicines, documents and chargers.",
+    "steps": [
+      "Leave when ordered. Delay costs lives.",
+      "Grab go-bags, medications, ID and insurance papers, phone and chargers, cash.",
+      "Take pets in carriers. Wear sturdy shoes.",
+      "Follow official routes. Keep the radio on.",
+      "Lock up. Turn off utilities only if told to.",
+      "Tell your out-of-area contact where you are going."
+    ],
+    "dont": ["Do not drive through floodwater or smoke you cannot see through.", "Do not go back for belongings."],
+    "warn": ["Official orders override your own plan."],
+    "guide": "evacuation-planning", "sources": ["ready-gov", "fema", "red-cross"], "tags": ["evacuate", "evacuation", "leave", "go bag", "get out"]
+  },
+  {
+    "id": "communication", "group": "Home and getting out", "title": "Phones Down: Emergency Communication", "icon": "radio", "severity": "info",
+    "summary": "Text, conserve battery and use radio. Use your family plan.",
+    "steps": [
+      "Text instead of calling. Texts often go through when calls fail.",
+      "Keep messages short: where you are, that you are OK, where you will wait.",
+      "Contact your out-of-area person. Everyone checks in there.",
+      "Save battery: low power mode, airplane mode between check-ins, lower brightness.",
+      "Listen on a NOAA Weather Radio or AM/FM radio for alerts and instructions.",
+      "No contact? Go to your agreed meeting place."
+    ],
+    "dont": ["Do not call 911 for information or to report an outage.", "Do not post your exact location or that your home is empty."],
+    "warn": ["Keep calls short. Free the lines for emergencies."],
+    "guide": "comms-network-failure", "sources": ["ready-gov", "red-cross", "fema"], "tags": ["no cell service", "phones down", "text", "radio", "contact family", "battery"]
+  }
+]

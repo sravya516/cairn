@@ -1,0 +1,177 @@
+[
+  {
+    "id": "evacuation", "group": "Plans & hazards", "title": "Evacuation Checklist", "tags": ["evacuate", "leave", "evacuation"],
+    "description": "Before and when you leave home. Follow official orders and leave early.",
+    "items": [
+      ["Know your evacuation zone and routes", "Two routes, marked on a paper map.", "1 plan", "critical"],
+      ["Two destinations chosen", "Different directions.", "2", "high"],
+      ["Vehicle fuel at least half full", "", "1", "critical"],
+      ["Go-bags packed for every person", "", "per person", "critical"],
+      ["Medications and medical devices packed", "", "all", "critical"],
+      ["Important documents grabbed", "ID, insurance, medical info.", "1 set", "critical"],
+      ["Pets, carriers and pet supplies loaded", "", "all pets", "critical"],
+      ["Phones, chargers and power banks", "", "all", "high"],
+      ["Cash and credit cards", "", "1", "high"],
+      ["Utilities turned off only if instructed", "Gas, electric and water per official guidance.", "1", "normal"],
+      ["Windows and doors locked", "", "1", "normal"],
+      ["Note left with destination", "Not posted publicly.", "1", "normal"],
+      ["Out-of-area contact informed", "Say where you are going.", "1", "high"],
+      ["Neighbors who need help notified", "", "1", "normal"],
+      ["Radio on for route updates", "", "1", "high"]
+    ]
+  },
+  {
+    "id": "shelter-in-place", "group": "Plans & hazards", "title": "Shelter-in-Place Checklist", "tags": ["stay home", "shelter in place", "sealed room"],
+    "description": "When officials say stay put, or travel is unsafe.",
+    "items": [
+      ["Bring everyone and pets inside", "", "all", "critical"],
+      ["Close and lock windows and doors", "", "all", "critical"],
+      ["Turn off fans and HVAC if instructed", "For outdoor contamination.", "1", "high"],
+      ["Choose an interior room", "Few or no windows.", "1", "high"],
+      ["Take supplies into the room", "Water, food, radio, flashlight, first aid, medications.", "1 set", "critical"],
+      ["Tune in to official information", "Radio or alerts.", "1", "critical"],
+      ["Seal room only if told to", "Plastic sheeting and tape.", "as needed", "normal"],
+      ["Keep phones charged", "", "all", "high"],
+      ["Set up a bucket toilet if needed", "", "1", "normal"],
+      ["Never use generators, grills or camp stoves inside", "Carbon monoxide kills.", "n/a", "critical"],
+      ["Check carbon monoxide and smoke alarms", "", "all", "critical"],
+      ["Stay until officials say it is safe", "", "n/a", "critical"]
+    ]
+  },
+  {
+    "id": "hurricane", "group": "Plans & hazards", "title": "Hurricane Preparation", "tags": ["hurricane", "storm surge", "tropical storm"],
+    "description": "Before, during and after hurricane season events.",
+    "items": [
+      ["Know your evacuation zone", "Surge zones, not just wind.", "1", "critical"],
+      ["Review flood and wind insurance", "Flood insurance has a waiting period.", "1", "high"],
+      ["Trim trees and secure outdoor items", "", "1", "normal"],
+      ["Install shutters or prepare plywood", "", "all windows", "high"],
+      ["Fuel the vehicle", "", "full tank", "critical"],
+      ["Fill water containers and bathtubs", "Sanitize tubs first.", "per plan", "high"],
+      ["Charge phones and power banks", "", "all", "high"],
+      ["Withdraw cash", "", "$200+", "normal"],
+      ["Prepare go-bags and documents", "", "all", "critical"],
+      ["Arrange pet evacuation", "", "all pets", "critical"],
+      ["Freeze water for the fridge and coolers", "", "several", "normal"],
+      ["Move valuables and documents up high", "Waterproof bags.", "1", "normal"],
+      ["Leave when ordered", "Do not wait.", "n/a", "critical"],
+      ["After: avoid floodwater and downed lines", "", "n/a", "critical"],
+      ["After: use generators only outdoors", "", "n/a", "critical"]
+    ]
+  },
+  {
+    "id": "tornado", "group": "Plans & hazards", "title": "Tornado Preparation", "tags": ["tornado", "severe weather", "safe room"],
+    "description": "Be ready to shelter within seconds.",
+    "items": [
+      ["Choose your shelter spot", "Lowest floor, interior room, away from windows.", "1", "critical"],
+      ["Practice with family and pets", "", "2 per year", "high"],
+      ["NOAA Weather Radio with alert", "To wake you at night.", "1", "critical"],
+      ["Phone alerts enabled", "", "all", "high"],
+      ["Helmets for each person", "Bike or sports helmets.", "per person", "high"],
+      ["Sturdy shoes near beds", "", "per person", "high"],
+      ["Flashlight and whistle in shelter", "", "1 set", "high"],
+      ["Blankets or mattress to cover up", "", "1", "normal"],
+      ["Mobile home residents: nearest sturdy building identified", "Mobile homes are not safe.", "1", "critical"],
+      ["Know watch versus warning", "Warning means take shelter now.", "n/a", "critical"],
+      ["Plan for school and workplace", "", "1", "normal"],
+      ["First-aid kit in shelter", "", "1", "high"]
+    ]
+  },
+  {
+    "id": "flood", "group": "Plans & hazards", "title": "Flood Preparation", "tags": ["flood", "flash flood", "water"],
+    "description": "Know your risk, protect documents and leave early.",
+    "items": [
+      ["Check flood risk for your address", "", "1", "critical"],
+      ["Buy flood insurance if at risk", "Policies usually have a waiting period.", "1", "high"],
+      ["Know evacuation routes to higher ground", "", "2", "critical"],
+      ["Store documents above ground level", "Waterproof containers.", "1", "high"],
+      ["Photograph belongings for insurance", "", "1 set", "normal"],
+      ["Know how to shut off utilities", "Do not touch electrical if wet.", "1", "high"],
+      ["Sandbags or plastic sheeting", "", "as needed", "normal"],
+      ["Sump pump with battery backup", "If applicable.", "optional", "normal"],
+      ["Waterproof boots and gloves", "For cleanup.", "1 set", "normal"],
+      ["Keep vehicle fueled and on high ground", "", "1", "high"],
+      ["Never drive through floodwater", "Turn around, don't drown.", "n/a", "critical"],
+      ["After: avoid floodwater and treat all water as unsafe", "", "n/a", "critical"],
+      ["After: dry out within 24-48 hours and wear an N95", "Mold prevention.", "n/a", "high"]
+    ]
+  },
+  {
+    "id": "wildfire", "group": "Plans & hazards", "title": "Wildfire Preparation", "tags": ["wildfire", "smoke", "defensible space"],
+    "description": "Ready, Set, Go. Leave early when told.",
+    "items": [
+      ["Clear dead vegetation near the home", "Start within 5 feet of the house.", "1", "critical"],
+      ["Clean gutters and roof", "", "1", "high"],
+      ["Cover vents with fine metal mesh", "", "all vents", "normal"],
+      ["Move firewood and propane away from home", "", "1", "high"],
+      ["Know two ways out of your neighborhood", "", "2", "critical"],
+      ["N95 respirators for each person", "Not cloth or surgical masks.", "per person", "critical"],
+      ["Go-bags packed and by the door", "", "per person", "critical"],
+      ["Vehicle fueled and parked facing out", "", "1", "high"],
+      ["Pet and livestock evacuation plan", "", "1", "high"],
+      ["Sign up for local alerts", "", "1", "critical"],
+      ["Create a clean-air room", "HEPA filter or box-fan filter.", "1", "normal"],
+      ["Documents and photos backed up", "", "1", "high"],
+      ["Leave immediately when ordered", "", "n/a", "critical"]
+    ]
+  },
+  {
+    "id": "winter-storm", "group": "Plans & hazards", "title": "Winter Storm Preparation", "tags": ["winter storm", "snow", "ice", "cold"],
+    "description": "Stay warm, safe and supplied for several days.",
+    "items": [
+      ["Weatherproof the home", "Caulk, insulate, protect pipes.", "1", "high"],
+      ["Service heating system and chimney", "", "1", "high"],
+      ["Smoke and carbon monoxide alarms tested", "Fresh batteries.", "all", "critical"],
+      ["Extra blankets and sleeping bags", "", "1 per person", "high"],
+      ["Warm layers, hats, gloves, boots", "", "per person", "high"],
+      ["Safe indoor heating plan", "Never use grills, stoves or generators indoors.", "1", "critical"],
+      ["Food and water for several days", "", "per plan", "critical"],
+      ["Flashlights, radio, batteries", "", "1 set", "high"],
+      ["Snow shovel, salt or sand", "", "1 set", "normal"],
+      ["Vehicle winter kit and full tank", "", "1", "high"],
+      ["Medications and refills", "", "7+ days", "critical"],
+      ["Plan to check on neighbors", "", "1", "normal"],
+      ["Pet shelter and water", "", "1", "normal"]
+    ]
+  },
+  {
+    "id": "power-outage", "group": "Plans & hazards", "title": "Power Outage Checklist", "tags": ["blackout", "outage", "power"],
+    "description": "Actions before and during an outage.",
+    "items": [
+      ["Report the outage to your utility", "", "1", "high"],
+      ["Use flashlights, not candles", "", "all", "high"],
+      ["Keep refrigerator and freezer closed", "Fridge about 4 hours, full freezer about 48 hours.", "n/a", "critical"],
+      ["Check food temperature before eating", "Discard perishables above 40°F for over 2 hours.", "n/a", "critical"],
+      ["Charge devices and conserve phone battery", "", "all", "high"],
+      ["Unplug sensitive electronics", "", "1", "normal"],
+      ["Stay away from downed power lines", "At least 35 feet. Call 911.", "n/a", "critical"],
+      ["Generators outdoors only, 20 feet away", "Never in garage or home.", "n/a", "critical"],
+      ["Stay warm or cool safely", "Layers, shade, cooling center.", "n/a", "high"],
+      ["Check on neighbors and vulnerable people", "", "1", "high"],
+      ["Backup plan for medical equipment", "", "1", "critical"],
+      ["Keep a light on to know when power returns", "", "1", "normal"],
+      ["Know where cooling or warming centers are", "", "1", "normal"]
+    ]
+  },
+  {
+    "id": "recovery", "group": "Plans & hazards", "title": "Post-Disaster Recovery Checklist", "tags": ["recovery", "cleanup", "insurance", "after disaster"],
+    "description": "After the immediate danger passes.",
+    "items": [
+      ["Wait for the official all-clear", "", "n/a", "critical"],
+      ["Check everyone for injuries", "Give first aid, call 911 if needed.", "all", "critical"],
+      ["Check for gas leaks and electrical hazards", "Do not use matches or switches if you smell gas.", "1", "critical"],
+      ["Wear protective gear", "Boots, gloves, eye protection, N95.", "1 set", "high"],
+      ["Photograph damage before cleanup", "", "1 set", "high"],
+      ["Contact your insurer", "", "1", "high"],
+      ["Have utilities inspected before use", "Especially after flooding.", "1", "critical"],
+      ["Discard unsafe food", "Floodwater, power loss, heat.", "all", "high"],
+      ["Treat tap water as unsafe until cleared", "", "n/a", "critical"],
+      ["Dry out and prevent mold", "24-48 hours.", "1", "high"],
+      ["Check on neighbors", "", "1", "normal"],
+      ["Apply for assistance if eligible", "Official sources only. Beware of scams.", "1", "normal"],
+      ["Keep receipts for expenses", "", "1", "normal"],
+      ["Watch stress and mental health", "Rest, eat, drink water, ask for help.", "all", "high"],
+      ["Restock and update your plan", "Note what you needed.", "1", "normal"]
+    ]
+  }
+]

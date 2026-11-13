@@ -1,0 +1,99 @@
+[
+  {
+    "id": "water-storage", "group": "Supplies", "title": "Water Storage", "tags": ["water", "storage", "treatment"],
+    "description": "Store, treat and rotate water. Use the Water Calculator to size your supply.",
+    "items": [
+      ["Calculated household water target", "Use the Water Calculator for your household and days.", "1 plan", "critical"],
+      ["Stored drinking water", "Commercially bottled or filled in food-grade containers.", "per calculator", "critical"],
+      ["Food-grade containers", "Jugs, blocks, barrels. Not milk or juice jugs.", "several", "high"],
+      ["Container labels with fill dates", "Replace home-filled water about every six months.", "all containers", "high"],
+      ["Water filter", "Know what it removes. Keep spare cartridges.", "1+", "high"],
+      ["Purification tablets or unscented bleach", "Check bleach percent on the label.", "1 supply", "high"],
+      ["Coffee filters or clean cloth", "To pre-filter cloudy water.", "10+", "normal"],
+      ["Pots for boiling and heat source", "Rolling boil 1 minute, 3 minutes at high altitude.", "1", "high"],
+      ["Water for pets", "See the calculator.", "per pet", "high"],
+      ["Know your alternate sources", "Water heater tank, ice, toilet tank (clean), rain collection.", "1 list", "normal"],
+      ["Handwashing station supplies", "Jug with spigot, soap, bucket.", "1 set", "normal"],
+      ["Rotation reminder on calendar", "Twice a year.", "2 per year", "high"]
+    ]
+  },
+  {
+    "id": "food-storage", "group": "Supplies", "title": "Food Storage", "tags": ["food", "pantry", "storage", "rotation"],
+    "description": "Build a pantry you will eat and rotate. Use the Food Calculator for quantities.",
+    "items": [
+      ["Calculated calorie target", "Use the Food Calculator.", "1 plan", "critical"],
+      ["Canned meat, fish, beans and vegetables", "", "per calculator", "critical"],
+      ["Canned fruit and juice", "", "per calculator", "normal"],
+      ["Rice, pasta, oats", "Sealed, cool and dry.", "per calculator", "high"],
+      ["Dried beans and lentils", "Need water and fuel.", "per calculator", "high"],
+      ["Peanut butter and nuts", "Calorie-dense, no cooking.", "several jars", "high"],
+      ["Crackers, granola bars, dried fruit", "", "several", "normal"],
+      ["Shelf-stable or powdered milk", "", "several", "normal"],
+      ["Cooking oil, salt, sugar, spices", "", "1 each", "normal"],
+      ["Comfort foods", "Coffee, tea, chocolate.", "some", "normal"],
+      ["Infant formula and baby food", "Never use past the date.", "if needed", "critical"],
+      ["Foods for special diets", "Allergies, diabetes, gluten-free.", "as needed", "critical"],
+      ["Manual can opener and utensils", "", "2", "high"],
+      ["Pest-proof containers", "Buckets with gasket lids, jars.", "several", "normal"],
+      ["Food rotation list with dates", "First in, first out.", "1", "high"],
+      ["Appliance thermometer for fridge and freezer", "", "2", "normal"]
+    ]
+  },
+  {
+    "id": "power-backup", "group": "Supplies", "title": "Power Backup", "tags": ["power", "battery", "solar", "generator"],
+    "description": "Backup power sized with the Power Calculator. Never run fuel-burning equipment indoors.",
+    "items": [
+      ["List of devices that must keep running", "Medical equipment, phones, radio, router, fridge.", "1 list", "critical"],
+      ["Calculated watt-hour need", "Use the Power Calculator.", "1", "high"],
+      ["Charged power banks", "Test every few months.", "2+", "high"],
+      ["Portable power station", "Size by watt-hours and output watts.", "1 (optional)", "normal"],
+      ["Solar panel matched to station", "Check voltage and watt limits.", "optional", "normal"],
+      ["Spare batteries (AA, AAA, D)", "Store cool, rotate.", "several", "high"],
+      ["Rechargeable batteries and charger", "", "1 set", "normal"],
+      ["Charging cables and car charger", "", "1 set", "high"],
+      ["Battery-powered carbon monoxide alarms", "On every level.", "per level", "critical"],
+      ["Generator with transfer switch", "Only if installed by a qualified electrician. Outdoors only.", "optional", "normal"],
+      ["Heavy-duty outdoor extension cords", "Outdoor rated, correct gauge.", "1-2", "normal"],
+      ["Approved fuel containers", "Store outdoors per local code.", "as allowed", "normal"],
+      ["Coolers and frozen water bottles", "To extend fridge cold time.", "2", "high"],
+      ["Appliance thermometers", "", "2", "normal"]
+    ]
+  },
+  {
+    "id": "comms-kit", "group": "Supplies", "title": "Communications Kit", "tags": ["radio", "communication", "weather radio", "contact"],
+    "description": "Ways to get information and contact family when networks fail.",
+    "items": [
+      ["NOAA Weather Radio with alerts", "Program your county. Test monthly.", "1", "critical"],
+      ["AM/FM battery or crank radio", "", "1", "high"],
+      ["Spare radio batteries", "", "2 sets", "high"],
+      ["Printed contact list and family plan", "Phones die.", "1 per person", "critical"],
+      ["Out-of-area contact agreed", "Everyone knows their number.", "1", "critical"],
+      ["Paper maps (local and routes)", "", "2", "high"],
+      ["Compass", "Learn to use it.", "1", "normal"],
+      ["Phone power banks and cables", "", "2+", "high"],
+      ["Two-way radios (FRS)", "Same model, set channel plan.", "pair", "normal"],
+      ["Whistle", "", "1 per person", "high"],
+      ["Offline maps downloaded", "Home, work, routes.", "1", "high"],
+      ["Wireless Emergency Alerts enabled", "Check phone settings.", "1", "high"],
+      ["Landline or corded phone", "If you have a traditional line.", "optional", "normal"]
+    ]
+  },
+  {
+    "id": "pet-kit", "group": "Supplies", "title": "Pet Emergency Kit", "tags": ["pet", "dog", "cat", "animal"],
+    "description": "Everything to keep pets safe and with you.",
+    "items": [
+      ["Food", "At least 3 days, ideally 2 weeks. Airtight container.", "per pet", "critical"],
+      ["Water and bowls", "See the Water Calculator.", "per pet", "critical"],
+      ["Medications and medical records", "Vaccination records, prescriptions.", "per pet", "critical"],
+      ["Collar with ID tag and microchip registration", "Current phone numbers.", "per pet", "critical"],
+      ["Leash, harness", "", "per pet", "high"],
+      ["Carrier or crate", "Large enough to stand and turn.", "per pet", "critical"],
+      ["Litter, pan and waste bags", "", "supply", "high"],
+      ["Recent photo of you with your pet", "To prove ownership.", "1", "high"],
+      ["Pet first-aid supplies", "", "1 kit", "normal"],
+      ["Blanket, toys, comfort items", "", "per pet", "normal"],
+      ["Pet-friendly places list", "Hotels, vets, boarding, friends.", "1", "high"],
+      ["Contact for backup caregiver", "", "1", "high"]
+    ]
+  }
+]

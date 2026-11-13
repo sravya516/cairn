@@ -1,0 +1,183 @@
+{
+  "appName": "Cairn",
+  "tagline": "YOUR COMPLETE OFFLINE EMERGENCY GUIDE",
+  "contentVersion": "2026.11-draft",
+  "contentDate": "2026-11-13",
+  "reviewStatus": "Written from public guidance of the organizations listed under Sources. NOT professionally reviewed. See CONTENT_SOURCES.md for per-guide verification dates.",
+  "disclaimer": [
+    "Cairn is educational. It does not replace professional medical care, emergency services, or instructions from local officials.",
+    "Conditions vary by location, season and household. Adapt every plan to your situation.",
+    "Official emergency instructions (from 911 dispatchers, emergency managers, fire, police, the National Weather Service) always take precedence over this app.",
+    "Seek professional medical care when needed. First-aid information here is not a substitute for training; consider a certified first-aid and CPR course.",
+    "Review this information and your supplies periodically. Guidance and product recommendations change.",
+    "Cairn is an independent project. It is not affiliated with, endorsed by or sponsored by FEMA, Ready.gov, the American Red Cross, the CDC, the National Weather Service or any other organization it cites as a source."
+  ],
+  "categories": [
+    {
+      "id": "general",
+      "letter": "A",
+      "title": "General Preparedness",
+      "icon": "shield",
+      "description": "Plans, contacts, documents, special-needs and 72-hour to 30-day readiness"
+    },
+    {
+      "id": "water",
+      "letter": "B",
+      "title": "Water",
+      "icon": "drop",
+      "description": "Storage, calculations, treatment and safe handling"
+    },
+    {
+      "id": "food",
+      "letter": "C",
+      "title": "Food & Nutrition",
+      "icon": "food",
+      "description": "Storage, safety, cooking without power and meal planning"
+    },
+    {
+      "id": "medical",
+      "letter": "D",
+      "title": "First Aid & Medical",
+      "icon": "medical",
+      "description": "First-aid reference, medications, hygiene and sanitation"
+    },
+    {
+      "id": "disasters",
+      "letter": "E",
+      "title": "Natural Disasters",
+      "icon": "storm",
+      "description": "Hurricanes, tornadoes, floods, wildfires, earthquakes, winter and heat"
+    },
+    {
+      "id": "shelter",
+      "letter": "F",
+      "title": "Shelter & Sanitation",
+      "icon": "shelter",
+      "description": "Staying safe, warm or cool at home; toilets, waste and ventilation"
+    },
+    {
+      "id": "power",
+      "letter": "G",
+      "title": "Power & Electricity",
+      "icon": "power",
+      "description": "Batteries, power stations, solar, generators and runtime math"
+    },
+    {
+      "id": "comms",
+      "letter": "H",
+      "title": "Communication & Navigation",
+      "icon": "radio",
+      "description": "Weather radio, family comms, maps and compass basics"
+    },
+    {
+      "id": "evacuation",
+      "letter": "I",
+      "title": "Evacuation & Transport",
+      "icon": "car",
+      "description": "Go-bags, vehicle kits, routes and returning home"
+    },
+    {
+      "id": "security",
+      "letter": "J",
+      "title": "Personal & Household Security",
+      "icon": "shield",
+      "description": "Lawful, defensive safety and awareness"
+    },
+    {
+      "id": "selfreliance",
+      "letter": "K",
+      "title": "Long-Term Self-Reliance",
+      "icon": "seed",
+      "description": "Gardening, preservation, budgeting and community resilience"
+    },
+    {
+      "id": "threats",
+      "letter": "L",
+      "title": "Other Emergencies and Threats",
+      "icon": "alert",
+      "description": "Nuclear and radiological events, chemical releases, tsunami, volcano, outbreaks, violence and more"
+    }
+  ],
+  "sources": {
+    "ready-gov": {
+      "name": "Ready.gov (FEMA)",
+      "url": "https://www.ready.gov"
+    },
+    "fema": {
+      "name": "Federal Emergency Management Agency",
+      "url": "https://www.fema.gov"
+    },
+    "cdc": {
+      "name": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov"
+    },
+    "red-cross": {
+      "name": "American Red Cross",
+      "url": "https://www.redcross.org"
+    },
+    "nws": {
+      "name": "National Weather Service",
+      "url": "https://www.weather.gov"
+    },
+    "noaa": {
+      "name": "NOAA",
+      "url": "https://www.noaa.gov"
+    },
+    "nfpa": {
+      "name": "National Fire Protection Association",
+      "url": "https://www.nfpa.org"
+    },
+    "osha": {
+      "name": "OSHA",
+      "url": "https://www.osha.gov"
+    },
+    "epa": {
+      "name": "U.S. Environmental Protection Agency",
+      "url": "https://www.epa.gov"
+    },
+    "usgs": {
+      "name": "U.S. Geological Survey",
+      "url": "https://www.usgs.gov"
+    },
+    "aha": {
+      "name": "American Heart Association",
+      "url": "https://www.heart.org"
+    },
+    "usfs": {
+      "name": "U.S. Forest Service",
+      "url": "https://www.fs.usda.gov"
+    },
+    "usda": {
+      "name": "U.S. Department of Agriculture",
+      "url": "https://www.usda.gov"
+    },
+    "cpsc": {
+      "name": "Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov"
+    },
+    "dhs": {
+      "name": "U.S. Department of Homeland Security (incl. CISA)",
+      "url": "https://www.dhs.gov"
+    },
+    "nrc": {
+      "name": "U.S. Nuclear Regulatory Commission",
+      "url": "https://www.nrc.gov"
+    },
+    "ada": {
+      "name": "American Diabetes Association",
+      "url": "https://diabetes.org"
+    },
+    "epilepsy-foundation": {
+      "name": "Epilepsy Foundation",
+      "url": "https://www.epilepsy.com"
+    },
+    "state": {
+      "name": "U.S. Department of State (Travel)",
+      "url": "https://travel.state.gov"
+    },
+    "uscg": {
+      "name": "U.S. Coast Guard",
+      "url": "https://www.uscg.mil"
+    }
+  }
+}

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "nuclear", "group": "Fire, weather and disasters", "title": "Nuclear Explosion or Radiation", "icon": "alert", "severity": "life",
+    "summary": "Get inside, stay inside, stay tuned. Shelter for at least 24 hours unless officials say otherwise.",
+    "steps": [
+      "Flash or attack? Do NOT look at it. Take cover behind anything solid. Outdoors, lie flat and cover your head.",
+      "Then get inside the nearest sturdy building. Go to the center or underground. More thick material is better.",
+      "Stay inside at least 24 hours unless officials say otherwise. Turn off fans and air conditioning.",
+      "Were you outside? Take off your outer clothes and seal them in a bag. Wash skin and hair gently with soap and water. Do not scrub.",
+      "Eat and drink only packaged food and water from sealed or covered containers.",
+      "Stay tuned: use a battery or crank radio or phone alerts for instructions. Text rather than call."
+    ],
+    "dont": ["Do not drive away or go outside to look or find family in the first hours.", "Do not take potassium iodide unless public health officials tell you to.", "Do not call 911 except for life-threatening injuries."],
+    "warn": ["Most radioactive dust is highest in the first hours and drops quickly. Shelter first, reunite later."],
+    "guide": "nuclear-explosion-fallout", "sources": ["ready-gov", "cdc", "fema"], "tags": ["nuclear", "radiation", "fallout", "blast", "radioactive", "get inside stay inside stay tuned"]
+  },
+  {
+    "id": "hazmat", "group": "Fire, weather and disasters", "title": "Chemical Spill or Toxic Release", "icon": "alert", "severity": "life",
+    "summary": "Move away upwind and uphill, or shelter in place if told. Call 911.",
+    "steps": [
+      "Told to shelter in place? Go inside, close and lock windows and doors, turn off fans, heating and air conditioning, go to an interior room.",
+      "Otherwise move away from the cloud or spill: upwind, uphill, and sideways to the wind.",
+      "Call 911 with your location and what you see. Call Poison Help 1-800-222-1222 about exposure.",
+      "Exposed? Remove contaminated clothing now. Cut it off rather than pulling it over your head.",
+      "Wash skin with soap and water for about 15 minutes. Flush eyes for at least 15 minutes.",
+      "Seek medical care. Tell responders what you were exposed to."
+    ],
+    "dont": ["Do not touch spilled material or drive through a cloud.", "Do not go to help others in the contaminated area."],
+    "warn": ["Gases can sink into low ground. Go uphill. Follow official instructions to shelter or evacuate."],
+    "guide": "hazardous-materials", "sources": ["ready-gov", "cdc", "epa"], "tags": ["chemical", "hazmat", "spill", "toxic", "gas cloud", "train derailment", "shelter in place"]
+  },
+  {
+    "id": "gas-leak", "group": "Fire, weather and disasters", "title": "Gas Leak", "icon": "fire", "severity": "life",
+    "summary": "Smell gas? Leave now. Call 911 and the gas company from outside.",
+    "steps": [
+      "Leave immediately with everyone, including pets. Go well away from the building.",
+      "Do not use light switches, lighters, matches or appliances. Do not start a vehicle in an attached garage.",
+      "From a safe distance outside, call 911 and your gas utility.",
+      "Do not go back in until the fire department or utility says it is safe.",
+      "Feeling dizzy, headachy or sick? Seek medical care. It could also be carbon monoxide."
+    ],
+    "dont": ["Do not look for the leak with a flame.", "Do not use a phone or doorbell inside."],
+    "warn": ["Gas smells like rotten eggs. Some people cannot smell it well. If in doubt, leave and call."],
+    "guide": "gas-leak", "sources": ["ready-gov", "nfpa", "cpsc"], "tags": ["gas leak", "natural gas", "propane", "rotten egg smell", "explosion"]
+  },
+  {
+    "id": "tsunami", "group": "Fire, weather and disasters", "title": "Tsunami", "icon": "drop", "severity": "life",
+    "summary": "Strong shaking, a warning, or odd sea behavior at the coast: go inland and uphill on foot now.",
+    "steps": [
+      "Do not wait for an official alert if you feel strong or long shaking (20 seconds or more), the sea suddenly drops or rises, or you hear a roar.",
+      "Go on foot, inland and uphill, as high and as far from the shore as you can.",
+      "No high ground nearby? Go to an upper floor of a sturdy multi-story building as a last resort.",
+      "Stay away from the shore. Do not go to watch the waves.",
+      "Stay there until officials give the all-clear. Waves can keep coming for hours and the first is not always the biggest."
+    ],
+    "dont": ["Do not drive if you can walk. Roads jam.", "Do not return after the first wave."],
+    "warn": ["Many local plans point to ground at least 100 feet above sea level or about 2 miles inland. Follow your local zone map."],
+    "guide": "tsunamis", "sources": ["noaa", "nws", "usgs"], "tags": ["tsunami", "tidal wave", "coast", "high ground", "earthquake", "sea level"]
+  },
+  {
+    "id": "volcano", "group": "Fire, weather and disasters", "title": "Volcanic Eruption and Ash", "icon": "fire", "severity": "urgent",
+    "summary": "Evacuate when told. Stay out of river valleys. In ashfall, stay in and protect your lungs.",
+    "steps": [
+      "Leave when ordered. Go uphill and away from river valleys, where mudflows travel.",
+      "Ashfall: stay indoors. Close windows, doors and chimney dampers. Turn off air conditioning and fans.",
+      "Going out? Wear an N95 respirator and goggles, and cover skin.",
+      "Avoid driving. Ash blocks visibility and clogs engines.",
+      "Bring pets inside. Cover water supplies and electronics.",
+      "Sweep ash gently off roofs, wearing a respirator, to prevent collapse."
+    ],
+    "dont": ["Do not use a cloth mask instead of an N95.", "Do not stay in a valley because the eruption looks small."],
+    "warn": ["People with asthma, COPD or heart disease should stay inside with medicines close."],
+    "guide": "volcanoes", "sources": ["usgs", "ready-gov", "cdc"], "tags": ["volcano", "ash", "eruption", "lahar", "lava", "ashfall"]
+  },
+  {
+    "id": "active-violence", "group": "Violence and collapse", "title": "Active Shooter or Violent Attack", "icon": "shield", "severity": "life",
+    "summary": "Run if you can. Hide if you cannot. Fight only as a last resort.",
+    "steps": [
+      "RUN: if there is a safe path, leave immediately. Leave belongings. Help others if you can.",
+      "HIDE: get out of sight. Lock or barricade the door. Silence your phone. Stay low and quiet.",
+      "Call 911 when safe: say where you are, number of attackers, descriptions and weapons.",
+      "FIGHT only if your life is in immediate danger: act with commitment, use anything as a weapon, work with others.",
+      "When police arrive: stay calm, keep hands up and visible, follow orders. Do not run toward them.",
+      "Do not leave until police direct you. Officers go to the threat first."
+    ],
+    "dont": ["Do not open the door unless you are sure it is police.", "Do not hold anything or point or yell at officers."],
+    "warn": ["Learn bleeding control. After the area is secure, help the injured and call for medical help."],
+    "guide": "active-violence", "sources": ["dhs", "ready-gov", "red-cross"], "tags": ["active shooter", "run hide fight", "attack", "violence", "gunman", "lockdown"]
+  },
+  {
+    "id": "explosion", "group": "Violence and collapse", "title": "Explosion or Suspicious Package", "icon": "alert", "severity": "urgent",
+    "summary": "Do not touch suspicious items. After an explosion, take cover, then leave and call 911.",
+    "steps": [
+      "Suspicious item: do not touch or move it. Move away and keep others away.",
+      "Report it to security or call 911 with its location.",
+      "After an explosion: take cover, protect your head. Then leave the building by stairs, staying low under smoke.",
+      "Cover your nose and mouth with cloth. Watch for falling debris and fire.",
+      "Move well away, upwind. Do not go back. More blasts or collapse can happen.",
+      "Call 911 when safe. Give first aid for bleeding and burns only if it is safe."
+    ],
+    "dont": ["Do not use elevators.", "Do not stay to film or return for belongings."],
+    "warn": ["Anyone near a blast needs medical evaluation even if they feel fine. Internal injuries can be hidden."],
+    "guide": "explosions-suspicious-items", "sources": ["dhs", "ready-gov", "red-cross"], "tags": ["explosion", "bomb", "suspicious package", "unattended bag", "blast", "terrorism"]
+  },
+  {
+    "id": "collapse", "group": "Violence and collapse", "title": "Building Collapse: Trapped", "icon": "shelter", "severity": "urgent",
+    "summary": "Cover your mouth, signal without shouting, stay still. Rescuers: call 911 and stay out.",
+    "steps": [
+      "Stay calm. Check for injuries and control bleeding with pressure.",
+      "Do not light a match or lighter. Gas may be present.",
+      "Cover your mouth and nose with cloth to avoid breathing dust.",
+      "Signal: tap on a pipe or wall, or use a whistle. Shout only as a last resort.",
+      "Text or call 911 if you have a phone. Turn on a flashlight. Save battery.",
+      "Stay still and conserve energy. Tell rescuers about injuries."
+    ],
+    "dont": ["Do not kick up dust or move around if it is unstable.", "Rescuers: do not enter unstable rubble. Call 911."],
+    "warn": ["People trapped for hours need urgent medical care even if they appear fine once freed."],
+    "guide": "structural-collapse", "sources": ["ready-gov", "fema", "red-cross"], "tags": ["collapse", "trapped", "rubble", "building collapse", "earthquake", "rescue"]
+  },
+  {
+    "id": "drowning", "group": "Life-threatening medical", "title": "Drowning", "icon": "drop", "severity": "life",
+    "summary": "Reach or throw, do not go. Call 911. No breathing: CPR with rescue breaths.",
+    "steps": [
+      "Shout for help and call 911 (or send someone).",
+      "Reach with a pole or towel, or throw something that floats. Do not enter the water.",
+      "Out of the water: check for responsiveness and normal breathing.",
+      "Not breathing: start CPR now. Rescue breaths matter in drowning. If untrained, do hands-only compressions and follow the dispatcher.",
+      "Use an AED if there is one. Dry the chest first.",
+      "Vomiting: turn them on their side, clear the mouth, and continue."
+    ],
+    "dont": ["Do not try to drain water from the lungs.", "Do not leave them alone."],
+    "warn": ["Anyone who needed rescue must be seen by a medical professional. Breathing problems can appear hours later."],
+    "guide": "drowning-water-rescue", "sources": ["red-cross", "aha", "cdc"], "tags": ["drowning", "water rescue", "pool", "river", "not breathing", "near drowning"]
+  },
+  {
+    "id": "asthma", "group": "Life-threatening medical", "title": "Asthma Attack or Hard Breathing", "icon": "medical", "severity": "urgent",
+    "summary": "Sit upright, use their prescribed quick-relief inhaler, call 911 if it is not improving.",
+    "steps": [
+      "Move away from smoke, dust or the trigger. Sit the person upright. Stay calm.",
+      "Help them use their own prescribed quick-relief inhaler exactly as their action plan says.",
+      "Stay with them and watch their breathing.",
+      "Call 911 if breathing does not improve quickly, they cannot speak, or lips turn blue or gray.",
+      "No inhaler, or the cause is unclear? Call 911. Check for choking or an allergic reaction."
+    ],
+    "dont": ["Do not give someone else's prescription.", "Do not leave them alone."],
+    "warn": ["Never run generators or fuel-burning equipment indoors. Carbon monoxide also causes breathlessness."],
+    "guide": "asthma-attack", "sources": ["cdc", "red-cross", "aha"], "tags": ["asthma", "wheezing", "inhaler", "can't breathe", "shortness of breath", "breathing"]
+  },
+  {
+    "id": "diabetic", "group": "Life-threatening medical", "title": "Diabetic Emergency: Low Blood Sugar", "icon": "medical", "severity": "urgent",
+    "summary": "Shaky, sweaty or confused and has diabetes? Give fast sugar if awake. Call 911 if not.",
+    "steps": [
+      "Signs: shaky, sweating, hungry, pale, confused, odd behavior. If in doubt, treat as low sugar.",
+      "Awake and able to swallow: give about 15 grams of fast sugar: glucose tablets per label, half a cup of juice or regular soda.",
+      "Wait about 15 minutes. Still low? Repeat.",
+      "Then give a snack if the next meal is far away.",
+      "Unconscious, seizing, or cannot swallow: call 911. Put them on their side. Nothing in the mouth.",
+      "A trained person may use their prescribed glucagon exactly as labeled."
+    ],
+    "dont": ["Do not put food or drink in the mouth of someone who is unconscious.", "Do not use diet soda."],
+    "warn": ["Very high sugar with thirst, vomiting, fruity breath or drowsiness is also an emergency. Seek care."],
+    "guide": "diabetic-emergency", "sources": ["ada", "cdc", "red-cross"], "tags": ["diabetes", "low blood sugar", "hypoglycemia", "insulin", "confused", "sugar"]
+  },
+  {
+    "id": "seizure", "group": "Life-threatening medical", "title": "Seizure", "icon": "medical", "severity": "urgent",
+    "summary": "Protect them, time it, nothing in the mouth. Call 911 if over 5 minutes or other warning signs.",
+    "steps": [
+      "Note the time. Stay calm.",
+      "Ease them to the floor. Move hard objects away. Cushion the head.",
+      "Loosen tight clothing at the neck. Remove glasses.",
+      "When shaking stops, turn them onto their side.",
+      "Stay until they are fully alert. Speak calmly.",
+      "Call 911 if it lasts over 5 minutes, repeats, they do not wake or breathe normally, they are injured, pregnant, in water, or it is a first seizure."
+    ],
+    "dont": ["Do not hold them down.", "Do not put anything in their mouth.", "Do not give food or drink until fully awake."],
+    "warn": ["If they stop breathing, start CPR."],
+    "guide": "seizures", "sources": ["epilepsy-foundation", "cdc", "red-cross"], "tags": ["seizure", "convulsion", "epilepsy", "shaking", "fit", "unconscious"]
+  },
+  {
+    "id": "head-injury", "group": "Life-threatening medical", "title": "Head Injury", "icon": "medical", "severity": "urgent",
+    "summary": "Call 911 for passing out, vomiting, confusion, seizure or severe headache. Keep the neck still.",
+    "steps": [
+      "Call 911 for loss of consciousness, repeated vomiting, seizure, severe or worsening headache, confusion, weakness, or clear fluid from nose or ears.",
+      "Possible neck or spine injury? Keep the head and neck still. Do not move them unless in danger.",
+      "Control scalp bleeding with firm, gentle pressure. Do not press on a dented area.",
+      "Apply a wrapped cold pack to swelling for about 20 minutes.",
+      "Someone should stay with them for 24 hours and watch for changes."
+    ],
+    "dont": ["Do not give aspirin or alcohol.", "Do not return to play or heavy work the same day."],
+    "warn": ["Any injury to an infant, or a baby who will not stop crying or feed, needs urgent care."],
+    "guide": "head-injury-concussion", "sources": ["cdc", "red-cross", "aha"], "tags": ["head injury", "concussion", "hit head", "fall", "unconscious", "vomiting"]
+  },
+  {
+    "id": "bites", "group": "Life-threatening medical", "title": "Snakebite and Animal Bites", "icon": "alert", "severity": "urgent",
+    "summary": "Snakebite: call 911, keep still. Animal bite: wash and get care for deep or wild-animal bites.",
+    "steps": [
+      "Move away from the animal. Do not try to catch it.",
+      "Snakebite: call 911. Keep the person calm and still. Remove rings and tight items near the bite.",
+      "Keep the bitten limb at or slightly below heart level. Note the time.",
+      "Other animal bite: control bleeding with pressure, then wash with soap and running water for several minutes.",
+      "Get medical care for deep bites, face or hand bites, or any wild or unknown animal. Rabies and tetanus are risks."
+    ],
+    "dont": ["Do not cut the wound, suck out venom, use a tourniquet or apply ice.", "Do not give alcohol or caffeine."],
+    "warn": ["Severe swelling, trouble breathing or hives after a sting means anaphylaxis: see the allergic reaction card."],
+    "guide": "bites-stings", "sources": ["cdc", "red-cross"], "tags": ["snakebite", "snake", "animal bite", "dog bite", "sting", "tick"]
+  },
+  {
+    "id": "childbirth", "group": "Life-threatening medical", "title": "Baby Is Coming: Emergency Childbirth", "icon": "medical", "severity": "life",
+    "summary": "Call 911 first, keep the phone on speaker. Support the head, do not pull, keep baby warm.",
+    "steps": [
+      "Call 911 and say a birth is imminent. Put the phone on speaker. They will coach you.",
+      "Gather clean towels and blankets. Help her get comfortable, lying back with knees up.",
+      "As the head appears, support it gently. Do NOT pull. If the cord is loose around the neck, slip it over the head.",
+      "Place the baby on the mother's chest, skin to skin. Dry the baby and cover both with a blanket, including the baby's head.",
+      "Do not cut the cord unless the dispatcher says to. Leave it attached. Do not pull the placenta.",
+      "Heavy bleeding or a baby who is limp, blue or not breathing: follow the dispatcher and treat for shock."
+    ],
+    "dont": ["Do not pull on the baby or the cord.", "Do not let her go to the toilet if birth seems close."],
+    "warn": ["Gently massage the lower belly after the placenta to help control bleeding."],
+    "guide": "emergency-childbirth", "sources": ["red-cross", "cdc"], "tags": ["childbirth", "labor", "baby", "delivery", "pregnant", "newborn"]
+  }
+]
