@@ -9,7 +9,8 @@ import path from 'node:path';
 import net from 'node:net';
 
 const ROOT = process.cwd();
-const APP_PORT = 4175, DEBUG_PORT = 9333;
+const freePort = () => new Promise((resolve, reject) => { const srv = net.createServer(); srv.unref(); srv.on('error', reject); srv.listen(0, '127.0.0.1', () => { const { port } = srv.address(); srv.close(() => resolve(port)); }); });
+const APP_PORT = await freePort(), DEBUG_PORT = await freePort();
 const argBase = process.argv.includes('--base-path') ? process.argv[process.argv.indexOf('--base-path') + 1] : null;
 const RAW_BASE = argBase || process.env.BASE_PATH || '/'; // pass "cairn" (no slashes): Git Bash on Windows rewrites "/cairn/"
 const SEGMENT = RAW_BASE.replace(/^\/+|\/+$/g, '');
@@ -36,6 +37,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const build = (stamp) => execFileSync(process.execPath, ['scripts/build.mjs', '--out', dist, '--stamp', stamp], { cwd: ROOT, stdio: 'pipe' });
 
 let server = null, browser = null;
+const killProfileProcesses = () => {
+  try {
+    if (process.platform === 'win32') {
+      execFileSync('powershell', ['-NoProfile', '-Command', `Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -and $_.CommandLine.Contains('${profile}') } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }`], { stdio: 'ignore' });
+    } else {
+      execFileSync('pkill', ['-f', profile], { stdio: 'ignore' });
+    }
+  } catch (_) { /* nothing left to kill */ }
+};
 const killTree = (child) => {
   if (!child || child.killed) return;
   try { process.platform === 'win32' ? execFileSync('taskkill', ['/pid', String(child.pid), '/T', '/F'], { stdio: 'ignore' }) : child.kill('SIGKILL'); } catch (_) { /* already gone */ }
@@ -487,7 +497,7 @@ async function main() {
 try { await main(); } catch (e) { check('E2E run completed', false, e.message); }
 finally {
   try { ws && ws.close(); } catch (_) { /* ignore */ }
-  killTree(browser); killTree(server);
+  killTree(browser); killTree(server); killProfileProcesses();
   await sleep(500);
   try { fs.rmSync(tmp, { recursive: true, force: true }); } catch (_) { /* profile may still be locked */ }
 }

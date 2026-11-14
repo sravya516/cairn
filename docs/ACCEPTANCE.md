@@ -32,7 +32,7 @@ Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self
 | 22 | No unnecessary data collection | ✅ | No analytics, tracking or network calls; data stays on the device. |
 | 23 | GitHub Pages deployment ready | 🟡 | Relative URLs, hash routing and the service worker verified at a `/cairn/` subpath locally **and live**: the workflow ran on GitHub (tests, Linux browser test, deploy all passed), and every file in the live cache list returns 200 with a matching checksum at https://sravya516.github.io/cairn/. Not yet opened on a real iPhone. |
 | 24 | Automated tests passing | ✅ | See *Test results* below. |
-| 25 | Offline functionality verified | 🟡 | Yes in Chrome/Edge (58 checks). **Not in Safari/iOS.** |
+| 25 | Offline functionality verified | 🟡 | Yes in Chrome/Edge (63 checks). **Not in Safari/iOS.** |
 | 26 | Complete documentation | ✅ | README, CONTRIBUTING, this audit, the iPhone test plan, CONTENT_SOURCES. |
 
 ## The sixteen required test areas
@@ -59,8 +59,8 @@ Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self
 ### Test results at the time of writing
 
 - `npm test`: all unit, content, accessibility, PWA, security and documentation tests pass.
-- `npm run e2e`: 58 of 58 checks pass at the site root.
-- `npm run e2e:subpath`: 58 of 58 checks pass at `/cairn/`.
+- `npm run e2e`: 63 of 63 checks pass at the site root.
+- `npm run e2e:subpath`: 63 of 63 checks pass at `/cairn/`.
 - GitHub Actions: the first run on push passed all three jobs (tests and build; Linux real-browser offline test; deploy). The live site's file list was checked against its checksums. Only one run has happened so far.
 
 ## Bugs found by this testing (and fixed)

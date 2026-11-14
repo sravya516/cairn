@@ -19,7 +19,7 @@ This project was built and tested on Windows. Everything below is marked honestl
 | Area | Status |
 |------|--------|
 | Unit, content, accessibility, security and PWA tests | Passing (`npm test`) |
-| Offline end-to-end test in a real browser (Edge/Chrome engine) with the server **killed**: 58 checks, including a 246-screen audit, real PDF generation, IndexedDB persistence, update flow, corrupted-data handling | Passing at the site root **and** at a `/cairn/` project-site subpath |
+| Offline end-to-end test in a real browser (Edge/Chrome engine) with the server **killed**: 63 checks, including a 246-screen audit and notched-iPhone layout checks, real PDF generation, IndexedDB persistence, update flow, corrupted-data handling | Passing at the site root **and** at a `/cairn/` project-site subpath |
 | WCAG AA colour contrast, both themes | Passing (computed from the stylesheet) |
 | **Installing on a real iPhone**, home-screen standalone look, launch screens, iOS storage behaviour, print/PDF from Safari, saving backups to Files | **Not tested.** No iPhone was available. Use [docs/IPHONE_TEST_PLAN.md](docs/IPHONE_TEST_PLAN.md) |
 | **Medical and safety content** | Written from general knowledge of public guidance. **Not professionally reviewed. No source has been verified against its live page** (every "last verified" cell in [CONTENT_SOURCES.md](CONTENT_SOURCES.md) is `—`). Verify the safety-critical table before relying on it |
