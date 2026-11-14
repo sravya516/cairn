@@ -67,6 +67,13 @@ export function buildShell() {
   const view = h('main', { id: 'view', tabindex: '-1' });
   const root = h('div', { class: 'app' }, header, banner, view, nav);
 
+  // The header's real height varies: on iPhones with a notch it includes the safe-area inset. Sticky and fixed
+  // elements below it (guide section bar, calculator summary) must start exactly where the header ends.
+  const syncHeaderHeight = () => document.documentElement.style.setProperty('--sticky-top', header.offsetHeight + 'px');
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(syncHeaderHeight).observe(header, { box: 'border-box' }); // border-box: the safe-area inset changes padding, not content
+  window.addEventListener('resize', syncHeaderHeight);
+  window.addEventListener('orientationchange', syncHeaderHeight);
+
   function setActive(path) {
     NAV.forEach((n, i) => {
       if (n.match(path)) links[i].setAttribute('aria-current', 'page');

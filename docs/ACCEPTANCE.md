@@ -24,7 +24,7 @@ Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self
 | 14 | Offline search | ✅ | Guides, headings, tags, checklist items, cards and calculators; typo tolerance, synonyms, suggestions, filters; verified offline. |
 | 15 | Bookmarks | ✅ | Plus recently viewed; persistence verified. |
 | 16 | Export and restore | 🟡 | Round trip (export → erase → restore) verified against real IndexedDB; tamper, truncation, oversize and hostile-content cases unit-tested. The actual **file download on iOS and saving to Files is not tested.** |
-| 17 | Printable emergency handbook | 🟡 | Generated offline; Chrome's print engine produced a real **115-page PDF** with the server down. iOS printing / PDF is not tested; the Home Screen app may not open a print dialog (fallback documented). |
+| 17 | Printable emergency handbook | 🟡 | Generated offline; Chrome's print engine produced a real **117-page PDF** with the server down. iOS printing / PDF is not tested; the Home Screen app may not open a print dialog (fallback documented). |
 | 18 | No required accounts or login | ✅ | None exist. |
 | 19 | No paid APIs | ✅ | No API calls at all. A CSP restricts the page to its own origin (tested). |
 | 20 | No paid hosting requirements | ✅ | GitHub Pages, free for **public** repositories. Private repositories need a paid GitHub plan. |

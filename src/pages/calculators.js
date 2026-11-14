@@ -25,6 +25,9 @@ export async function calculatorPage({ id }) {
   let inputs = restoreInputs(calc, saved);
 
   const resultsBox = h('div', { class: 'card results-box', role: 'status', 'aria-live': 'polite' });
+  // Slim copy of the main result, shown only after the full results scroll out of view. Hidden from screen readers (the live region above already announces results).
+  const summaryBar = h('div', { class: 'calc-summary', 'aria-hidden': 'true' }, h('div', { class: 'calc-summary-inner' }, h('div', { class: 'calc-summary-bar' })));
+  const summaryText = summaryBar.querySelector('.calc-summary-bar');
   const errEls = {};
   const form = h('form', { class: 'card calc-form', novalidate: true, onsubmit: (e) => e.preventDefault() });
 
@@ -38,10 +41,12 @@ export async function calculatorPage({ id }) {
         if (errEls[k]) errEls[k].textContent = msg;
         form.querySelector(`[data-key="${k}"]`)?.setAttribute('aria-invalid', 'true');
       }
+      summaryText.replaceChildren(h('strong', null, 'Check your inputs'));
       fill(resultsBox, h('h2', null, 'Check your inputs'), h('p', { class: 'bad' }, Object.values(out.errors)[0]));
       return;
     }
     const primary = out.results.find((r) => r.primary) || out.results[0];
+    summaryText.replaceChildren(h('strong', null, primary.value), h('span', null, primary.label));
     fill(resultsBox,
       h('p', { class: 'muted small' }, primary.label),
       h('p', { class: 'big' }, primary.value),
@@ -113,7 +118,7 @@ export async function calculatorPage({ id }) {
   } }, icon('back'), 'Reset to defaults');
 
   recompute();
-  return h('div', { class: 'calc' },
+  const page = h('div', { class: 'calc' },
     h('a', { class: 'back', href: '#/calculators' }, icon('back'), 'All calculators'),
     h('h1', { tabindex: '-1', id: 'page-title' }, calc.title),
     h('p', { class: 'muted' }, calc.summary),
@@ -121,4 +126,14 @@ export async function calculatorPage({ id }) {
     h('div', { class: 'card' }, h('h2', null, 'Assumptions'), h('ul', null, calc.assumptions.map((a) => h('li', null, a)))),
     h('div', { class: 'card' }, h('h2', null, 'Limitations'), h('ul', null, calc.limitations.map((a) => h('li', null, a)))),
     h('p', { class: 'muted small' }, 'These are planning estimates, not guarantees. Conditions and needs vary.'));
+  page.prepend(summaryBar);
+
+  // Show the slim bar once the full results have scrolled up under the header.
+  if (typeof IntersectionObserver !== 'undefined') {
+    const headerPx = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sticky-top'), 10) || 60;
+    new IntersectionObserver(([entry]) => {
+      summaryBar.classList.toggle('show', !entry.isIntersecting && entry.boundingClientRect.bottom < headerPx + 1);
+    }, { rootMargin: `-${headerPx}px 0px 0px 0px` }).observe(resultsBox);
+  }
+  return page;
 }

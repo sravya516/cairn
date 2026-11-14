@@ -274,6 +274,45 @@ async function main() {
   await sleep(500);
   await waitFor("document.readyState === 'complete' && !!document.documentElement.dataset.route", 15000, 'app reload after PDF');
 
+  // Notched-iPhone layout (real-device bug): sticky and fixed bars must start below the header and never cover the form
+  let notch = true;
+  try { await send('Emulation.setSafeAreaInsetsOverride', { insets: { top: 47, bottom: 34, left: 0, right: 0 } }); } catch (_) { notch = false; }
+  if (notch) {
+    await evaluate("location.hash='#/calc/water'");
+    await waitFor("document.documentElement.dataset.route === '#/calc/water' && !!document.querySelector('.results-box')", 8000, 'water calculator');
+    await sleep(400);
+    const geo = await evaluate(`(() => {
+      const hb = document.querySelector('header.header').getBoundingClientRect().bottom;
+      const cssVar = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sticky-top'));
+      const before = document.querySelector('.calc-summary').classList.contains('show');
+      window.scrollTo(0, 900);
+      return { hb: Math.round(hb), cssVar: Math.round(cssVar), before, resultsSticky: getComputedStyle(document.querySelector('.results-box')).position };
+    })()`);
+    await sleep(500);
+    const after = await evaluate(`(() => {
+      const bar = document.querySelector('.calc-summary');
+      const r = bar.querySelector('.calc-summary-bar').getBoundingClientRect();
+      const hb = document.querySelector('header.header').getBoundingClientRect().bottom;
+      const input = document.querySelector('#f-adults');
+      input.scrollIntoView({ block: 'center' });
+      const ir = input.getBoundingClientRect();
+      return { shown: bar.classList.contains('show'), top: Math.round(r.top), height: Math.round(r.height), hb: Math.round(hb), inputBelowBar: ir.top > r.bottom, text: bar.textContent.slice(0, 40) };
+    })()`);
+    check('NOTCHED IPHONE: header measured at its real height (includes the safe area)', geo.hb > 100 && Math.abs(geo.hb - geo.cssVar) <= 2, JSON.stringify(geo));
+    check('NOTCHED IPHONE: the full results panel is not sticky and no bar shows at the top', geo.resultsSticky !== 'sticky' && !geo.before);
+    check('NOTCHED IPHONE: slim result bar appears under the header after scrolling, and is small', after.shown && Math.abs(after.top - after.hb) <= 2 && after.height < 80, JSON.stringify(after));
+    check('NOTCHED IPHONE: form inputs are never covered by the bar', after.inputBelowBar, JSON.stringify(after));
+    await evaluate("location.hash='#/guide/hurricanes'");
+    await waitFor("document.documentElement.dataset.route === '#/guide/hurricanes' && !!document.querySelector('.toc')", 8000, 'guide with section bar');
+    await evaluate("window.scrollTo(0, 700)");
+    await sleep(400);
+    const toc = await evaluate("({ top: Math.round(document.querySelector('.toc').getBoundingClientRect().top), hb: Math.round(document.querySelector('header.header').getBoundingClientRect().bottom) })");
+    check('NOTCHED IPHONE: guide section bar sticks directly below the header (not under it)', Math.abs(toc.top - toc.hb) <= 2, JSON.stringify(toc));
+    await send('Emulation.setSafeAreaInsetsOverride', { insets: { top: 0, bottom: 0, left: 0, right: 0 } }).catch(() => {});
+    await evaluate("location.hash='#/'");
+    await sleep(300);
+  } else console.log('NOTE  safe-area emulation unavailable in this browser; notch layout checks skipped');
+
   // Skip link must move focus without breaking the router
   const skip = await evaluate("(()=>{const before=location.hash;document.querySelector('.skip-link').click();return {same: location.hash===before, focused: document.activeElement&&document.activeElement.id}})()");
   check('OFFLINE: skip-to-content link moves focus and does not change the route', skip.same && skip.focused === 'view', JSON.stringify(skip));

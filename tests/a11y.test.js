@@ -94,3 +94,25 @@ test('index.html has language, viewport that allows zoom, and a skip link', () =
   assert.match(html, /class="skip-link"/);
   assert.match(html, /<noscript>/);
 });
+
+// Regression for a real-iPhone bug: a tall sticky panel covered the calculator form, and sticky elements used a fixed 60px
+// offset so they slid under the (much taller) header on notched iPhones.
+test('sticky and fixed elements start below the measured header height, and no large panel is sticky', () => {
+  assert.match(css, /--sticky-top:\s*calc\(var\(--header-h\)\s*\+\s*env\(safe-area-inset-top\)\)/, 'safe-area-aware fallback');
+  const bare = css.replace(/\/\*[\s\S]*?\*\//g, ''); // comments would otherwise stick to the next selector
+  const rules = [...bare.matchAll(/([^{}]+)\{([^{}]*)\}/g)].map((m) => ({ sel: m[1].trim(), body: m[2] }));
+  for (const r of rules) {
+    if (!/position:\s*(sticky|fixed)/.test(r.body) || /^\.header|^\.bottom-nav|^\.skip-link/.test(r.sel)) continue;
+    const top = r.body.match(/top:\s*([^;]+);/);
+    if (top) assert.ok(top[1].includes('--sticky-top') || top[1].trim() === '0', `${r.sel}: sticky/fixed top must use --sticky-top, found "${top[1]}"`);
+  }
+  const box = rules.find((r) => r.sel === '.results-box');
+  assert.ok(box && !/position:\s*sticky/.test(box.body), 'the full results panel must not be sticky (it covers the inputs on phones)');
+  assert.match(css, /\.calc-summary\s*{[^}]*position:\s*fixed/, 'a slim fixed summary bar replaces it');
+});
+
+test('shell measures the header so sticky offsets follow the real (safe-area) height', () => {
+  const shell = fs.readFileSync(path.join(ROOT, 'src/components/shell.js'), 'utf8');
+  assert.match(shell, /setProperty\('--sticky-top'/);
+  assert.match(shell, /ResizeObserver/);
+});

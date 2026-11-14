@@ -34,7 +34,7 @@ You need: an iPhone with Safari, the app served over **HTTPS** (for example GitH
 | C2 | Tap **Share or save to Files…** if shown. | Share sheet opens with a `.json` file. |
 | C3 | Choose the saved file under **Restore from a backup**. | Summary shows the right counts. **Merge** works. |
 | C4 | **Printable handbook → Download handbook file**. Open the saved file in Safari. | Handbook opens and is readable. |
-| C5 | In Safari, **Share → Print**, then pinch outward on the preview. | A multi-page PDF preview you can save to Files (about 115 pages for Essentials). |
+| C5 | In Safari, **Share → Print**, then pinch outward on the preview. | A multi-page PDF preview you can save to Files (about 117 pages for Essentials). |
 | C6 | In the Home Screen app, tap **Print or save as PDF**. | Note whether a print dialog opens. It may not (known iOS limitation). |
 
 ## D. Updates and storage
