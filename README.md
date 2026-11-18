@@ -19,7 +19,7 @@ This project was built and tested on Windows. Everything below is marked honestl
 | Area | Status |
 |------|--------|
 | Unit, content, accessibility, security and PWA tests | Passing (`npm test`) |
-| Offline end-to-end test in a real browser (Edge/Chrome engine) with the server **killed**: 63 checks, including a 246-screen audit and notched-iPhone layout checks, real PDF generation, IndexedDB persistence, update flow, corrupted-data handling | Passing at the site root **and** at a `/cairn/` project-site subpath |
+| Offline end-to-end test in a real browser (Edge/Chrome engine) with the server **killed**: 71 checks, including a 247-screen audit and notched-iPhone layout checks, real PDF generation, IndexedDB persistence, update flow, corrupted-data handling | Passing at the site root **and** at a `/cairn/` project-site subpath |
 | WCAG AA colour contrast, both themes | Passing (computed from the stylesheet) |
 | **Installing on a real iPhone**, home-screen standalone look, launch screens, iOS storage behaviour, print/PDF from Safari, saving backups to Files | **Not tested.** No iPhone was available. Use [docs/IPHONE_TEST_PLAN.md](docs/IPHONE_TEST_PLAN.md) |
 | **Medical and safety content** | Written from general knowledge of public guidance. **Not professionally reviewed. No source has been verified against its live page** (every "last verified" cell in [CONTENT_SOURCES.md](CONTENT_SOURCES.md) is `—`). Verify the safety-critical table before relying on it |
@@ -34,6 +34,7 @@ A full criterion-by-criterion audit is in [docs/ACCEPTANCE.md](docs/ACCEPTANCE.m
 - **21 checklists** (316 items): 72-hour, two-week and 30-day supplies, go-bags, vehicle and first-aid kits, hazard preparation and recovery. Check items, add notes and custom items. Progress saves automatically.
 - **7 calculators**: water, food, power, battery, fuel planning, budget and storage. Each states its assumptions and limits, and is tested against hand-computed values.
 - **My Plan**: household members, medical notes, contacts, meeting places, evacuation plan, pets, vehicles. Validated, autosaved, stored only on the device.
+- **Ask Cairn** (`#/ask`): type a question in plain words and get the matching passage from the guides, emergency cards or checklists, quoted word for word with its guide, section, sources and date. It can also do the water, food and battery sums from a sentence, sends "someone is not breathing"-type questions straight to the emergency card with a Call 911 button, refuses medicine-dose questions, and says so when it has no answer. **It is not a generative AI**: it cannot write new advice, search the internet or know today's weather, so it cannot invent anything. It runs on the device, offline, and nothing typed leaves it. Measured accuracy is in [Ask Cairn: how well does it work?](#ask-cairn-how-well-does-it-work) below.
 - **Offline search** across guides, checklist items, emergency cards and calculators, with typo tolerance and suggestions.
 - **Printable handbook**, generated on the device, as a print/PDF view or a downloadable HTML file.
 - **Backup and restore** with checksum validation, merge or replace, and undo.
@@ -95,6 +96,7 @@ To rehearse the subpath locally: `npm run build && npm run serve:subpath`, then 
 | `npm run check` | Builds, then runs `npm test` (a quick pre-commit check) |
 | `npm run e2e` | Real-browser offline test (see below). Needs Chrome or Edge installed |
 | `npm run e2e:subpath` | The same, served at `/cairn/` to prove project-site deployment |
+| `npm run ask -- "how do I stop bleeding"` | Asks the assistant a question from the command line (after `npm run build`) and shows the ranked passages, for tuning |
 | `npm run sources` | Regenerates the guide and card tables in `CONTENT_SOURCES.md` (`-- --check` to verify only) |
 | `npm run icons` | Regenerates the app icons and iPhone launch screens (dependency-free PNG encoder) |
 
@@ -104,7 +106,7 @@ To rehearse the subpath locally: `npm run build && npm run serve:subpath`, then 
 
 1. Loads the app, waits for the service worker to install, and verifies every file is cached with a matching checksum.
 2. **Kills the web server** (and confirms the port refuses connections) and switches the browser offline.
-3. Cold-starts the app, opens every route, searches, toggles checklists, uses calculators, edits the plan, makes and restores a backup, generates the handbook as a real PDF, and audits all **246 screens** for headings, labels, accessible names, dead links, stray text and horizontal overflow at phone, tablet and desktop widths.
+3. Cold-starts the app, opens every route, searches, toggles checklists, uses calculators, edits the plan, makes and restores a backup, generates the handbook as a real PDF, and audits all **247 screens** for headings, labels, accessible names, dead links, stray text and horizontal overflow at phone, tablet and desktop widths.
 4. Corrupts saved data on purpose to prove the app recovers.
 5. Brings the server back with a **new build** and verifies the update flow: the new version waits for approval, then replaces the old cache completely.
 
@@ -159,7 +161,18 @@ Why these choices: a no-dependency stack means nothing to patch, nothing to down
 
 Guides are written in a compact Markdown-style format in `src/data/guides/`. The build validates structure, categories and sources. See [CONTRIBUTING.md](CONTRIBUTING.md) for the format, safety rules (no medication doses, always cite sources) and the verification process.
 
+## Ask Cairn: how well does it work?
+
+Ask Cairn finds passages; it does not understand or reason. Two question sets measure it (both in `tests/`, run by `npm test`):
+
+- **Tuning set** (`assistant.test.js`, 69 answerable questions): the right guide is in the top 3 for 69/69 and first for 63/69. These questions were used while building the engine, so this number is optimistic.
+- **Held-out set** (`assistant-heldout.test.js`, 39 answerable questions written afterwards in different words): on the first run the right guide was in the top 3 for **77%**, and the right guide with the key fact shown for **72%**. After fixing general defects it exposed (words like "safest", compounds like "snowstorm", live-data questions) it reads 82% and 77%, but those fixes mean the set is no longer fully held out. Roughly **one answerable question in five still gets a wrong or incomplete answer**. When it is unsure it says which words it could not match, and every answer links to the full guide so you can check it.
+
+Out-of-scope questions (weather, news, recipes, car repair) are declined in 7 of 8 held-out cases; the miss shows a weakly related passage with a "may not fully answer" warning. It will never give medicine doses.
+
 ## Known limitations
+
+- Ask Cairn is keyword retrieval, not AI: it can miss a question that the guides do answer, and it cannot combine information from several guides. Use Search or browse the guides when it does not find what you need.
 
 - Not professionally reviewed; sources not yet verified (see above).
 - United States focus (911, Poison Help, NWS, FEMA).

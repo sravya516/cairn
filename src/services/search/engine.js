@@ -224,3 +224,11 @@ export function buildDocs(content, guideTextFn, extra = []) {
   }
   return [...docs, ...extra];
 }
+
+/** Stemmed synonyms of a stemmed token (used by the offline assistant). Multi-word synonyms are split into their words. */
+export function synonymsOf(stemmedToken) {
+  const out = new Set();
+  for (const alt of SYNONYMS.get(stemmedToken) || []) for (const t of alt.split(' ')) if (t) out.add(t);
+  return [...out];
+}
+export { editDistanceLE1 };

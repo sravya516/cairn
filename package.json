@@ -15,6 +15,7 @@
     "e2e": "node scripts/e2e-offline.mjs",
     "e2e:subpath": "node scripts/e2e-offline.mjs --base-path cairn",
     "sources": "node scripts/sources-report.mjs",
+    "ask": "node scripts/ask.mjs",
     "check": "npm run build && npm test"
   }
 }

@@ -155,6 +155,32 @@ async function main() {
   await waitFor("document.querySelectorAll('.results .result').length > 0", 8000, 'search results');
   const topHit = await evaluate("document.querySelector('.results .result strong').textContent");
   check('OFFLINE: full-text search returns results', /Generator|Carbon Monoxide|Ventilation/i.test(topHit), topHit);
+  // Ask Cairn, offline: every answer is quoted from the cached guides
+  const ask = async (q) => {
+    await setAskInput(q);
+    await evaluate("document.querySelector('.ask-form').requestSubmit()");
+    await waitFor(`document.querySelector('.ask-q') && document.querySelector('.ask-q').textContent.includes(${JSON.stringify(q.slice(0, 20))})`, 8000, 'ask answer: ' + q);
+    return evaluate("(()=>{const t=document.querySelector('.ask-turn');return {q:t.querySelector('.ask-q').textContent,text:t.querySelector('.ask-a').textContent,links:[...t.querySelectorAll('.ask-a a')].map(a=>a.getAttribute('href')),cards:t.querySelectorAll('.ans-card').length,call:!!t.querySelector('a.call-911')}})()");
+  };
+  const setAskInput = (v) => evaluate(`(()=>{const el=document.querySelector('#ask-q');el.value=${JSON.stringify(v)};return true})()`);
+  await evaluate("location.hash='#/ask'");
+  await waitFor("document.querySelector('h1') && document.querySelector('h1').textContent === 'Ask Cairn' && document.querySelectorAll('.ask-starters .chip').length >= 6", 8000, 'ask page');
+  check('OFFLINE: Ask Cairn opens with example questions', true);
+  const a1 = await ask('How do I make water safe to drink?');
+  check('OFFLINE: Ask Cairn answers a how-to question from the guides, with a link and source', a1.cards >= 1 && a1.links.some((l) => /^#\/(guide|emergency|checklist)\//.test(l)) && /Based on:/.test(a1.text), JSON.stringify(a1).slice(0, 300));
+  const a2 = await ask('my uncle is not breathing and has no pulse');
+  check('OFFLINE: Ask Cairn puts a 911 button and the emergency card first for a present emergency', a2.call && /911/.test(a2.text) && a2.links.some((l) => l.startsWith('#/emergency/')), JSON.stringify(a2).slice(0, 300));
+  const a3 = await ask('How much water do I need for 4 people for 5 days?');
+  check('OFFLINE: Ask Cairn works out a water sum and says what it assumed', /\b\d+(\.\d+)?\s*(gal|gallon|L|liters)/i.test(a3.text) && a3.links.includes('#/calc/water'), JSON.stringify(a3).slice(0, 300));
+  const a4 = await ask('what is the weather tomorrow');
+  check('OFFLINE: Ask Cairn admits it cannot look up live information instead of guessing', /can.t look up live information/.test(a4.text) && a4.cards === 0, JSON.stringify(a4).slice(0, 300));
+  const a5 = await ask('how many mg of ibuprofen can I give my child');
+  check('OFFLINE: Ask Cairn refuses medicine doses and points to a pharmacist or Poison Help', /can.t advise on medicine doses/.test(a5.text) && /1-800-222-1222/.test(a5.text), JSON.stringify(a5).slice(0, 300));
+  await evaluate("location.hash='#/ask?q=how%20do%20I%20stop%20bleeding'");
+  await waitFor("document.querySelectorAll('.ask-turn').length >= 1 && document.querySelector('.ask-q').textContent.includes('stop bleeding')", 8000, 'ask ?q=');
+  check('OFFLINE: Ask Cairn answers a question passed in the link (?q=)', (await evaluate("document.querySelectorAll('.ask-turn')[0].querySelectorAll('.ans-card').length")) >= 1);
+  await evaluate("[...document.querySelectorAll('.ask button')].find(b=>b.textContent==='Clear conversation').click()");
+  check('OFFLINE: Ask Cairn clears the conversation', (await evaluate("document.querySelectorAll('.ask-turn').length")) === 0);
   const disasterCount = await evaluate("fetch('./data/content.json').then(r=>r.json()).then(c=>c.guides.filter(g=>g.category==='disasters').length)");
   check('OFFLINE: all 15 disaster guides are in the cached content', disasterCount === 15, String(disasterCount));
 
@@ -335,7 +361,7 @@ async function main() {
     const { routes } = await import('./src/routes.js');
     const { parseHash, matchRoute } = await import('./src/navigation/router.js');
     const c = await loadContent();
-    const list = ['#/', '#/emergency', '#/search', '#/storage', '#/guides', '#/checklists', '#/calculators', '#/plan', '#/handbook', '#/about', '#/backup',
+    const list = ['#/', '#/emergency', '#/search', '#/ask', '#/storage', '#/guides', '#/checklists', '#/calculators', '#/plan', '#/handbook', '#/about', '#/backup',
       ...c.meta.categories.map((x) => '#/guides/' + x.id), ...c.guides.map((g) => '#/guide/' + g.id), ...c.checklists.map((x) => '#/checklist/' + x.id),
       ...CALCULATORS.map((x) => '#/calc/' + x.id), ...c.emergency.map((x) => '#/emergency/' + x.id), ...SECTIONS.map((s) => '#/plan/' + s.id)];
     const linkOk = (href) => {

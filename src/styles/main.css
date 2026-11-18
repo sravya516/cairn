@@ -330,3 +330,25 @@ span.block { display: block; }
 .calc-summary-bar strong { font-size: 1.15rem; }
 .calc-summary-bar span { font-size: .85rem; opacity: .9; }
 @media (prefers-reduced-motion: reduce) { .calc-summary { transition: none; } }
+
+/* ---- Ask Cairn ---- */
+.ask-link { margin-top: 10px; }
+.ask-form { display: flex; gap: 8px; margin-bottom: 10px; }
+.ask-form .search-input { flex: 1; min-width: 0; margin-bottom: 0; }
+.ask-form .btn { min-width: 76px; }
+.ask-form[hidden], .ask .btn[hidden] { display: none; }
+.ask-starters { margin-bottom: 8px; }
+.ask-turn { margin: 18px 0; scroll-margin-top: calc(var(--sticky-top) + 12px); }
+.ask-q { font-weight: 700; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px 14px 14px 4px; padding: 10px 14px; margin-bottom: 10px; overflow-wrap: anywhere; }
+.ans-card h3 { margin-bottom: .3em; }
+.ans-card h4 { margin: 8px 0 4px; color: var(--danger); }
+.ans-where { font-size: .85rem; color: var(--text-muted); margin-bottom: 6px; }
+.ans-where .rtype { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+.ans-list { margin: 0 0 8px; padding-left: 1.3em; }
+.ans-list li { margin-bottom: .4em; }
+.ans-list li.hl { background: color-mix(in srgb, var(--teal) 14%, transparent); border-radius: 6px; margin-left: -4px; padding-left: 4px; }
+.ans-text { margin: 0 0 8px; }
+.ans-src { margin: 8px 0 0; }
+.ans-hedge { margin: 0 0 8px; }
+.ans-card.sev-life { border-left: 6px solid var(--danger); }
+.ans-emergency .call-911 { margin-bottom: 12px; }

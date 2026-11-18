@@ -62,6 +62,12 @@ Edit `src/data/emergency/quick.json`. A card has 4 to 7 short steps (each under 
 2. Register it in `src/calculators/registry.js`.
 3. Add tests with hand-computed expected values in `tests/calculators.test.js`. The fuzz test covers hostile input automatically.
 
+## Ask Cairn (the question assistant)
+
+The assistant in `src/services/assistant/` answers only by quoting your guides, cards and checklists, so new content is found automatically with no extra step. Write guides so a section heading and its first sentence say what the section answers ("How to treat a burn", not "Notes"): that is what questions match against.
+
+If you change the engine, run `npm test` and read both reports it prints: the tuning set (`tests/assistant.test.js`) and the held-out set (`tests/assistant-heldout.test.js`). Never tune against the held-out file; add new questions as a new batch. Rules that must never be loosened: medicine-dose questions are refused (`medicineGuard`), present-emergency wording shows the emergency card first, and every line shown must exist word for word in the content (tested). `npm run ask -- "your question"` shows the ranked passages.
+
 ## The sources register
 
 `CONTENT_SOURCES.md` records, for every guide and card, which sources it uses and **when a human last verified it against the live source**.

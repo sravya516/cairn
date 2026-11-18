@@ -33,7 +33,8 @@ export async function searchPage(_params, ctx) {
   const status = h('p', { class: 'muted small', role: 'status', 'aria-live': 'polite' });
   const list = h('ul', { class: 'results' });
 
-  root.append(h('h1', { tabindex: '-1', id: 'page-title' }, 'Search'), input, suggest, chips, status, list);
+  const askHint = h('p', { class: 'muted small' }, 'Have a full question? ', h('a', { href: '#/ask' }, 'Ask Cairn'), '.');
+  root.append(h('h1', { tabindex: '-1', id: 'page-title' }, 'Search'), input, suggest, chips, status, list, askHint);
 
   let data;
   try { data = await getIndex(); } catch (e) {

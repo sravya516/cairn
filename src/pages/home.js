@@ -41,13 +41,14 @@ export async function homePage() {
     h('label', { class: 'sr-only', for: 'home-q' }, 'Search all guides'),
     h('input', { type: 'search', id: 'home-q', name: 'q', placeholder: 'Search all guides…', autocomplete: 'off', enterkeyhint: 'search' }),
     h('button', { class: 'btn', type: 'submit', 'aria-label': 'Search' }, icon('search')));
+  const askLink = h('a', { class: 'btn secondary block ask-link', href: '#/ask' }, icon('book'), 'Ask Cairn a question');
 
   const hero = h('div', { class: 'card hero' },
     h('div', { style: 'margin-bottom:10px' }, statusPill()),
     h('h1', { tabindex: '-1', id: 'page-title' }, 'CAIRN'),
     h('p', { class: 'eyebrow' }, 'YOUR COMPLETE OFFLINE EMERGENCY GUIDE'),
     h('a', { class: 'btn danger block', href: '#/emergency' }, icon('alert'), 'Emergency Now'),
-    form);
+    form, askLink);
 
   const root = h('div', { class: 'home' }, hero, emergencyNotice());
 
