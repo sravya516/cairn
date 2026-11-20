@@ -1,6 +1,6 @@
 # Acceptance audit
 
-An honest, criterion-by-criterion account of the original requirements. **"Verified" means a test or a real-browser run I executed demonstrated it. "Not verified" means it was not demonstrated.** Nothing was tested on a physical iPhone or in Safari; all browser evidence is from the Chrome/Edge engine on Windows.
+An honest, criterion-by-criterion account of the original requirements. **"Verified" means a test or a real-browser run I executed demonstrated it. "Not verified" means it was not demonstrated.** All automated browser evidence is from the Chrome/Edge engine on Windows. The only iPhone/Safari evidence is informal owner testing (installed, calculators, Ask Cairn) with no device, iOS version or step log recorded; the full iPhone test plan has not been worked through.
 
 Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self-assessed · ⚠️ implemented but **not verified** · ❌ not met
 
@@ -9,8 +9,8 @@ Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self
 | # | Criterion | Status | Evidence and caveats |
 |---|-----------|--------|----------------------|
 | 1 | Professional, polished user interface | 🟡 | Reviewed in screenshots at phone width and checked for overflow at 390, 768 and 1280 px. No user testing. Subjective. |
-| 2 | Installable on iPhone through Safari | ⚠️ | Manifest, 180/192/512 icons (opaque, as iOS requires), maskable icon, iOS meta tags and 10 launch images are present and tested (`tests/pwa.test.js`). **Never installed on a real iPhone.** Run [IPHONE_TEST_PLAN.md](IPHONE_TEST_PLAN.md) section A. |
-| 3 | Works as a standalone home-screen application | ⚠️ | `display: standalone`, safe-area padding and iOS standalone meta are in place. Not seen on a device. |
+| 2 | Installable on iPhone through Safari | ⚠️ | Manifest, 180/192/512 icons (opaque, as iOS requires), maskable icon, iOS meta tags and 10 launch images are present and tested (`tests/pwa.test.js`). Owner reports it installed and worked on a real iPhone (no device, iOS version or step log recorded). Run [IPHONE_TEST_PLAN.md](IPHONE_TEST_PLAN.md) section A to log it properly. |
+| 3 | Works as a standalone home-screen application | ⚠️ | `display: standalone`, safe-area padding and iOS standalone meta are in place. Owner reports it works on a real iPhone; not logged in detail. |
 | 4 | Opens without internet after initial caching | 🟡 | e2e: server killed (port refuses connections) and browser offline, then cold start succeeds, at root and at `/cairn/`. Chrome/Edge engine only. Safari's service-worker behavior is not tested. |
 | 5 | All essential emergency content available offline | ✅ | 67 files pre-cached; the status screen and e2e verify every file against its SHA-256. All 247 screens open offline. |
 | 6 | Comprehensive emergency-preparedness encyclopedia | 🟡 | 146 guides, about 37,000 words, 12 categories. Some listed topics are merged into one guide (see *Deviations*); a test confirms ~100 topic queries find the right guide. Not professionally reviewed. |

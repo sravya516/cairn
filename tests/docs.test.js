@@ -60,12 +60,13 @@ test('the pre-cached file count in the audit matches a fresh build', () => {
 
 test('docs never overclaim: iPhone and professional review are stated as NOT done', () => {
   const readme = read('README.md');
-  assert.match(readme, /Installing on a real iPhone[^|]*\|\s*\*\*Not tested/);
+  assert.match(readme, /Installing on a real iPhone[^|]*\|\s*\*\*Partly tested by the owner, not logged/);
+  assert.match(readme, /No device model, iOS version or per-step log was recorded/);
   assert.match(readme, /Not professionally reviewed/i);
   assert.match(readme, /No source has been verified/);
   const accept = read('docs/ACCEPTANCE.md');
-  assert.match(accept, /Nothing was tested on a physical iPhone/);
-  assert.match(read('docs/IPHONE_TEST_PLAN.md'), /None of the iOS-specific behavior has been tested/);
+  assert.match(accept, /informal owner testing[^.]*no device, iOS version or step log recorded/);
+  assert.match(read('docs/IPHONE_TEST_PLAN.md'), /Only informal, unlogged owner testing has been done/);
   // The register must still show no fabricated verification dates.
   const sources = read('CONTENT_SOURCES.md');
   assert.ok(!/\|\s*20\d\d-\d\d-\d\d\s*\|\s*$/m.test(sources.split('## Change log')[0].split('## Source registry')[1]), 'a verification date appears without evidence: if a human verified, update this test');

@@ -1,6 +1,6 @@
 # iPhone test plan
 
-**Why this exists:** Cairn was built and tested on Windows with the Chrome/Edge engine. **None of the iOS-specific behavior has been tested on a real iPhone.** This is a script anyone with an iPhone can run in about 30 minutes. Record the results in the table at the bottom, and please report failures.
+**Why this exists:** Cairn was built and tested on Windows with the Chrome/Edge engine. **Only informal, unlogged owner testing has been done on a real iPhone (install, calculator layout, Ask Cairn); the iOS-specific behavior below has not been tested systematically.** This is a script anyone with an iPhone can run in about 30 minutes. Record the results in the table at the bottom, and please report failures.
 
 You need: an iPhone with Safari, the app served over **HTTPS** (for example GitHub Pages; a plain `http://` address on your network will not give you a service worker on iOS), and a way to turn on Airplane Mode.
 
