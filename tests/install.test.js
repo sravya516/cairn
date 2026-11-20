@@ -47,7 +47,7 @@ test('iPhone steps cover both Share-button layouts, in plain words', async () =>
   const ios = src.slice(src.indexOf('ios: ['), src.indexOf('android: ['));
   assert.match(ios, /Share/);
   assert.match(ios, /square with an arrow pointing up/);
-  assert.match(ios, /three dots \(•••\) or the three lines \(☰\)/, 'the hidden-in-a-menu layout must be explained');
+  assert.match(ios, /three lines \(☰\)[^]*three dots \(•••\)/, 'the hidden-in-a-menu layout must be explained');
   assert.match(ios, /Add to Home Screen/);
   assert.match(ios, /View More/);
   assert.match(ios, /Open as Web App/);

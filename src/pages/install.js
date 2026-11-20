@@ -17,7 +17,7 @@ export const STEPS = {
       detail: 'Share looks like a square with an arrow pointing up. Where it is depends on your iPhone and iOS version. Look for one of these:',
       choices: [
         { heading: 'Share is in the bar', icon: 'share', text: 'You can see the Share button in the bar at the bottom of the screen, or next to the web address at the top. Tap it.' },
-        { heading: 'Share is hidden in a menu', icon: 'dots', text: 'Newer iPhones with the new Safari layout hide it. Tap the three dots (•••) or the three lines (☰) next to the web address, then tap Share in the list that opens.' },
+        { heading: 'Share is hidden in a menu', icon: 'menu', text: 'Newer iPhones with the new Safari layout hide it. Tap the three lines (☰) next to the web address, then tap Share in the list that opens. On some iPhones this button looks like three dots (•••) instead.' },
       ],
     },
     { title: 'Tap “Add to Home Screen”', detail: 'Scroll down the list that opened. If you do not see it, tap “View More” or “More” first.', icon: 'plus' },

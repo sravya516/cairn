@@ -59,7 +59,7 @@ The app has a built-in **Install Cairn on your phone** page (`#/install`, also l
 **iPhone or iPad (Safari):**
 
 1. Open the app's address in **Safari** (it must be Safari for the sure way; other browsers on newer iOS may also work).
-2. Find the **Share** button (a square with an arrow pointing up). On some iPhones it is in the bottom bar or next to the web address. On newer iPhones with the new Safari layout it is hidden: tap the **three dots (•••) or three lines (☰)** next to the web address, then **Share**.
+2. Find the **Share** button (a square with an arrow pointing up). On some iPhones it is in the bottom bar or next to the web address. On newer iPhones with the new Safari layout it is hidden: tap the **three lines (☰)** (on some iPhones, three dots •••) next to the web address, then **Share**.
 3. Scroll down and tap **Add to Home Screen** (tap **View More** first if you do not see it), then **Add**.
 4. Launch Cairn from the new icon, once with internet, and wait a minute. Open **My Plan → Offline and storage status** and look for **Offline ready**.
 
