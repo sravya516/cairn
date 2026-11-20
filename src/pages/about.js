@@ -34,5 +34,6 @@ export async function aboutPage() {
         h('li', null, 'Local conditions vary. Instructions from local officials always come first.'),
         h('li', null, 'Cairn cannot call for help for you. Call 911 for life-threatening emergencies.'),
         h('li', null, 'Calculators give planning estimates, not guarantees.'))),
+    h('a', { class: 'btn secondary block', href: '#/install' }, icon('download'), 'Install Cairn on your phone'),
     h('a', { class: 'btn secondary block', href: '#/storage' }, icon('wifi'), 'Offline and storage status'));
 }

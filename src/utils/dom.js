@@ -23,6 +23,12 @@ function append(el, children) {
   }
 }
 
+/** Like el.append(), but skips null/undefined/false (the native method would print the text "null"). */
+export function appendAll(el, ...children) {
+  el.append(...children.flat(Infinity).filter((c) => c != null && c !== false));
+  return el;
+}
+
 export function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); }
 
 /** Like el.replaceChildren(), but skips null/undefined/false (the native method would print the text "null"). */

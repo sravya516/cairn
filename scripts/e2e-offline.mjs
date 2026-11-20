@@ -181,6 +181,22 @@ async function main() {
   check('OFFLINE: Ask Cairn answers a question passed in the link (?q=)', (await evaluate("document.querySelectorAll('.ask-turn')[0].querySelectorAll('.ans-card').length")) >= 1);
   await evaluate("[...document.querySelectorAll('.ask button')].find(b=>b.textContent==='Clear conversation').click()");
   check('OFFLINE: Ask Cairn clears the conversation', (await evaluate("document.querySelectorAll('.ask-turn').length")) === 0);
+  // Install help, offline: written steps for iPhone (both Share layouts) and Android, plus the one-tap Install button
+  await evaluate("location.hash='#/install'");
+  await waitFor("document.querySelector('h1') && document.querySelector('h1').textContent === 'Install Cairn on your phone'", 8000, 'install page');
+  await evaluate("[...document.querySelectorAll('.install .chip')].find(b=>b.textContent==='iPhone or iPad').click()");
+  const iosText = await evaluate("document.querySelector('.install-steps').textContent");
+  check('OFFLINE: Install page explains iPhone steps including the Share button hidden behind the three dots', /Add to Home Screen/.test(iosText) && /square with an arrow pointing up/.test(iosText) && /three dots/.test(iosText), iosText.slice(0, 160));
+  check('OFFLINE: no tab of the Install page prints stray "null" text', (await evaluate("(() => { const bad = []; for (const name of ['iPhone or iPad', 'Android', 'Computer']) { [...document.querySelectorAll('.install .chip')].find(b => b.textContent === name).click(); if (/null|undefined/.test(document.querySelector('main').textContent)) bad.push(name); } return bad.join(','); })()")) === '');
+  await evaluate("[...document.querySelectorAll('.install .chip')].find(b=>b.textContent==='iPhone or iPad').click()");
+  await evaluate(`(() => { window.__prompted = false; const ev = new Event('beforeinstallprompt', { cancelable: true }); ev.prompt = async () => { window.__prompted = true; }; ev.userChoice = Promise.resolve({ outcome: 'accepted' }); window.dispatchEvent(ev); return true; })()`);
+  await evaluate("[...document.querySelectorAll('.install .chip')].find(b=>b.textContent==='Android').click()");
+  const androidText = await evaluate("document.querySelector('.install-steps').textContent + ' ' + document.querySelector('.install-other').textContent");
+  check('OFFLINE: Install page explains Android steps (menu, Samsung Internet, Firefox, Edge)', /Install app/.test(androidText) && /Samsung Internet/.test(androidText) && /Firefox/.test(androidText) && /Microsoft Edge/.test(androidText), androidText.slice(0, 160));
+  check('OFFLINE: the browser\'s one-tap Install offer is shown as a button on the Android tab', (await evaluate("!!document.querySelector('.native-slot button')")) === true);
+  await evaluate("document.querySelector('.native-slot button').click()");
+  await sleep(300);
+  check('OFFLINE: tapping the Install button asks the browser to install', (await evaluate('window.__prompted')) === true);
   const disasterCount = await evaluate("fetch('./data/content.json').then(r=>r.json()).then(c=>c.guides.filter(g=>g.category==='disasters').length)");
   check('OFFLINE: all 15 disaster guides are in the cached content', disasterCount === 15, String(disasterCount));
 
@@ -361,7 +377,7 @@ async function main() {
     const { routes } = await import('./src/routes.js');
     const { parseHash, matchRoute } = await import('./src/navigation/router.js');
     const c = await loadContent();
-    const list = ['#/', '#/emergency', '#/search', '#/ask', '#/storage', '#/guides', '#/checklists', '#/calculators', '#/plan', '#/handbook', '#/about', '#/backup',
+    const list = ['#/', '#/emergency', '#/search', '#/ask', '#/install', '#/storage', '#/guides', '#/checklists', '#/calculators', '#/plan', '#/handbook', '#/about', '#/backup',
       ...c.meta.categories.map((x) => '#/guides/' + x.id), ...c.guides.map((g) => '#/guide/' + g.id), ...c.checklists.map((x) => '#/checklist/' + x.id),
       ...CALCULATORS.map((x) => '#/calc/' + x.id), ...c.emergency.map((x) => '#/emergency/' + x.id), ...SECTIONS.map((s) => '#/plan/' + s.id)];
     const linkOk = (href) => {
@@ -399,7 +415,7 @@ async function main() {
       if (!/ · Cairn$/.test(document.title)) bad('title "' + document.title + '"');
       if (document.activeElement && document.activeElement.id !== 'page-title') bad('focus not moved to the page heading');
       if (document.documentElement.scrollWidth > innerWidth + 1) bad('horizontal overflow ' + document.documentElement.scrollWidth + ' > ' + innerWidth);
-      if (/\\b(undefined|NaN)\\b|\\[object|\\bnull\\b/.test(main.textContent)) bad('stray text: ' + (main.textContent.match(/.{0,25}(undefined|NaN|\\[object|\\bnull\\b).{0,10}/) || [''])[0]);
+      if (/\\b(undefined|NaN)\\b|\\[object|(?<![A-Za-z])(null)+(?![A-Za-z])/.test(main.textContent)) bad('stray text: ' + (main.textContent.match(/.{0,25}(undefined|NaN|\\[object|(?<![A-Za-z])(null)+(?![A-Za-z])).{0,10}/) || [''])[0]);
       for (const el of main.querySelectorAll('input:not([type=hidden]), select, textarea')) {
         const named = (el.labels && el.labels.length) || el.getAttribute('aria-label') || el.getAttribute('aria-labelledby');
         if (!named) bad('unlabelled <' + el.tagName.toLowerCase() + '> id=' + el.id);

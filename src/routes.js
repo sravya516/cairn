@@ -3,6 +3,7 @@ import { homePage } from './pages/home.js';
 import { emergencyPage, emergencyCardPage } from './pages/emergency.js';
 import { searchPage } from './pages/search.js';
 import { askPage } from './pages/ask.js';
+import { installPage } from './pages/install.js';
 import { storagePage } from './pages/storage.js';
 import { guidesHome, guidesCategory, guidePage } from './pages/guides.js';
 import { checklistsHome, checklistPage } from './pages/checklists.js';
@@ -18,6 +19,7 @@ export const routes = [
   { pattern: 'emergency/:id', title: 'Emergency card', page: (p) => emergencyCardPage(p) },
   { pattern: 'search', title: 'Search', page: (p, ctx) => searchPage(p, ctx) },
   { pattern: 'ask', title: 'Ask Cairn', page: (p, ctx) => askPage(p, ctx) },
+  { pattern: 'install', title: 'Install Cairn', page: () => installPage() },
   { pattern: 'storage', title: 'Offline & storage status', page: () => storagePage() },
   { pattern: 'guides', title: 'Guides', page: () => guidesHome() },
   { pattern: 'guides/:cat', title: 'Guides', page: (p) => guidesCategory(p) },

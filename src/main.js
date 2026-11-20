@@ -1,6 +1,7 @@
 import { buildShell } from './components/shell.js';
 import { startRouter } from './navigation/router.js';
 import { initOffline } from './services/offline/register.js';
+import { initInstall } from './services/install.js';
 import { getStore, requestPersistence } from './services/storage/index.js';
 import { loadContent } from './services/content.js';
 import { h } from './utils/dom.js';
@@ -35,6 +36,7 @@ function boot() {
   getStore().then(() => requestPersistence()).catch(() => {});
   // The skip link must not change the hash (it is the router's state): move focus instead.
   document.querySelector('.skip-link')?.addEventListener('click', (e) => { e.preventDefault(); shell.view.focus(); shell.view.scrollIntoView(); });
+  initInstall(); // capture the browser's install offer before any screen asks for it
   startRouter(routes, (match, ctx) => { render(shell, match, ctx); });
   initOffline();
 }

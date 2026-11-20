@@ -10,7 +10,7 @@ You need: an iPhone with Safari, the app served over **HTTPS** (for example GitH
 |---|------|----------|
 | A1 | Open the app address in **Safari** (not an in-app browser). Wait 10 seconds. | Home screen appears. Pill says "Online · offline-ready". |
 | A2 | Tap **My Plan → Offline and storage status**. | "Offline ready" or "Almost ready" with all items OK except possibly *Protected storage*. Note exactly what it says. |
-| A3 | Tap **Share → Add to Home Screen**. Check the name and icon in the sheet. | Name "Cairn", the green plus icon. |
+| A3 | Open Cairn's own **Install Cairn on your phone** page (Home → "Show me how", or About). Follow it: find **Share** (in the bar, or behind the ••• / ☰ menu on newer layouts), then **Add to Home Screen**. Note which layout your iPhone has. Check the name and icon in the sheet. | Name "Cairn", the green plus icon. |
 | A4 | Launch from the Home Screen icon. | Launch image (dark with the icon) appears briefly, then the app opens **without Safari's address bar or toolbar**. |
 | A5 | Check the top of the screen. | Header sits **below** the status bar and notch (not overlapped). Bottom navigation sits **above** the home indicator. |
 

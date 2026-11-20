@@ -1,6 +1,6 @@
 // Emergency Now: quick-reference mode. Large text, short steps, one tap from anywhere.
 // The 911 block is static so it is shown even if content fails to load.
-import { h } from '../utils/dom.js';
+import { h, appendAll } from '../utils/dom.js';
 import { icon } from '../utils/icons.js';
 import { loadContent } from '../services/content.js';
 import { inlineParts } from '../utils/text.js';
@@ -15,7 +15,7 @@ export async function emergencyPage() {
     h('p', { class: 'lead-911' }, 'In the United States, call 911 when available for any life-threatening emergency. Official instructions from emergency officials come first.'));
   let c;
   try { c = await loadContent(); } catch (_) {
-    root.append(h('div', { class: 'card' },
+    appendAll(root, h('div', { class: 'card' },
       h('h2', null, 'If you cannot reach 911'),
       h('ol', null, h('li', null, 'Try again, or move to a spot with better signal.'), h('li', null, 'Send a text to 911 where supported.'), h('li', null, 'Get to a safe place and ask people nearby for help.')),
       h('p', { class: 'muted small' }, 'The quick-reference cards could not be loaded. ', h('a', { href: '#/storage' }, 'Check offline status'))));
@@ -23,13 +23,13 @@ export async function emergencyPage() {
   }
   const groups = [...new Set(c.emergency.map((e) => e.group))];
   for (const g of groups) {
-    root.append(h('h2', { class: 'em-group' }, g),
+    appendAll(root, h('h2', { class: 'em-group' }, g),
       ...c.emergency.filter((e) => e.group === g).map((e) => h('a', { class: `em-btn sev-${e.severity}`, href: `#/emergency/${e.id}` },
         h('span', { class: 'em-ico' }, icon(e.icon || 'alert')),
         h('span', { class: 'em-text' }, h('strong', null, e.title), h('span', null, e.summary)),
         icon('chevron', 'width="22" height="22"'))));
   }
-  root.append(h('p', { class: 'muted small' }, 'These cards are short summaries. Full guides, with more detail, are linked from each card. They are education, not a substitute for training or professional care.'));
+  appendAll(root, h('p', { class: 'muted small' }, 'These cards are short summaries. Full guides, with more detail, are linked from each card. They are education, not a substitute for training or professional care.'));
   return root;
 }
 

@@ -354,3 +354,23 @@ span.block { display: block; }
 .ans-hedge { margin: 0 0 8px; }
 .ans-card.sev-life { border-left: 6px solid var(--danger); }
 .ans-emergency .call-911 { margin-bottom: 12px; }
+
+/* ---- Install help ---- */
+.install .lead { font-size: 1.05rem; }
+.install h2 { font-size: 1.05rem; margin: 14px 0 8px; }
+.install-steps { list-style: none; counter-reset: step; padding: 0; margin: 14px 0; }
+.install-step { counter-increment: step; display: flex; gap: 12px; margin-bottom: 16px; }
+.install-step::before { content: counter(step); flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--green-strong); color: #fff; font-weight: 800; margin-top: 2px; }
+.step-body { flex: 1; min-width: 0; }
+.step-title { font-size: 1.1rem; display: block; margin-bottom: 4px; }
+.step-detail { margin: 0 0 8px; }
+.step-choices { display: grid; gap: 10px; }
+.step-choice { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; }
+.step-choice p { margin: 4px 0 0; }
+.inline-ico { display: inline-flex; vertical-align: middle; width: 1.3em; height: 1.3em; color: var(--teal); }
+.inline-ico svg { width: 100%; height: 100%; }
+.install-other summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; font-weight: 700; }
+.step-other { padding-left: 1.2em; }
+.native-slot { margin: 6px 0 10px; }
+.install-tip .btn { margin-top: 8px; }
+.install-tip p { margin: 0 0 4px; }

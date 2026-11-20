@@ -19,7 +19,7 @@ This project was built and tested on Windows. Everything below is marked honestl
 | Area | Status |
 |------|--------|
 | Unit, content, accessibility, security and PWA tests | Passing (`npm test`) |
-| Offline end-to-end test in a real browser (Edge/Chrome engine) with the server **killed**: 71 checks, including a 247-screen audit and notched-iPhone layout checks, real PDF generation, IndexedDB persistence, update flow, corrupted-data handling | Passing at the site root **and** at a `/cairn/` project-site subpath |
+| Offline end-to-end test in a real browser (Edge/Chrome engine) with the server **killed**: 76 checks, including a 248-screen audit and notched-iPhone layout checks, real PDF generation, IndexedDB persistence, update flow, corrupted-data handling | Passing at the site root **and** at a `/cairn/` project-site subpath |
 | WCAG AA colour contrast, both themes | Passing (computed from the stylesheet) |
 | **Installing on a real iPhone**, home-screen standalone look, launch screens, iOS storage behaviour, print/PDF from Safari, saving backups to Files | **Partly tested by the owner, not logged.** The project owner reported on a real iPhone (2026-11-14 to 2026-11-20) that the installed live site worked, the calculator layout fix worked, and four Ask Cairn checks passed (the answer shows above the keyboard, it answers in airplane mode, and the Call 911 button appears for a present emergency). **No device model, iOS version or per-step log was recorded**, and the full [docs/IPHONE_TEST_PLAN.md](docs/IPHONE_TEST_PLAN.md) has not been worked through, so print/PDF from Safari, saving backups to Files and VoiceOver remain unconfirmed. |
 | **Medical and safety content** | Written from general knowledge of public guidance. **Not professionally reviewed. No source has been verified against its live page** (every "last verified" cell in [CONTENT_SOURCES.md](CONTENT_SOURCES.md) is `—`). Verify the safety-critical table before relying on it |
@@ -52,12 +52,18 @@ npm run serve      # serves dist/ at http://localhost:4173
 
 Open <http://localhost:4173>. Service workers work on `localhost`.
 
-## Install on an iPhone
+## Install on a phone
 
-1. Open the app's address in **Safari** (it must be Safari for installing).
-2. Wait a few seconds on the first visit while the offline copy is saved. Open **My Plan → Offline and storage status** and look for **Offline ready**.
-3. Tap **Share**, then **Add to Home Screen**.
-4. Launch Cairn from the new icon.
+The app has a built-in **Install Cairn on your phone** page (`#/install`, also linked from Home and About) with plain step-by-step help for iPhone/iPad, Android and computers. Home shows a short "Add Cairn to your Home Screen" card on phones until you tap "Not now".
+
+**iPhone or iPad (Safari):**
+
+1. Open the app's address in **Safari** (it must be Safari for the sure way; other browsers on newer iOS may also work).
+2. Find the **Share** button (a square with an arrow pointing up). On some iPhones it is in the bottom bar or next to the web address. On newer iPhones with the new Safari layout it is hidden: tap the **three dots (•••) or three lines (☰)** next to the web address, then **Share**.
+3. Scroll down and tap **Add to Home Screen** (tap **View More** first if you do not see it), then **Add**.
+4. Launch Cairn from the new icon, once with internet, and wait a minute. Open **My Plan → Offline and storage status** and look for **Offline ready**.
+
+**Android (Chrome):** tap the **Install Cairn** button that Cairn shows when Chrome offers it, or tap the three dots (⋮) and choose **Install app** (or **Add to Home screen**). Samsung Internet, Firefox and Edge steps are on the Install page. **The Android steps have not been tested on a real Android phone**; the install button, the manifest and the page are tested in a desktop browser only.
 
 ### iOS limits, stated honestly
 
@@ -106,7 +112,7 @@ To rehearse the subpath locally: `npm run build && npm run serve:subpath`, then 
 
 1. Loads the app, waits for the service worker to install, and verifies every file is cached with a matching checksum.
 2. **Kills the web server** (and confirms the port refuses connections) and switches the browser offline.
-3. Cold-starts the app, opens every route, searches, toggles checklists, uses calculators, edits the plan, makes and restores a backup, generates the handbook as a real PDF, and audits all **247 screens** for headings, labels, accessible names, dead links, stray text and horizontal overflow at phone, tablet and desktop widths.
+3. Cold-starts the app, opens every route, searches, toggles checklists, uses calculators, edits the plan, makes and restores a backup, generates the handbook as a real PDF, and audits all **248 screens** for headings, labels, accessible names, dead links, stray text and horizontal overflow at phone, tablet and desktop widths.
 4. Corrupts saved data on purpose to prove the app recovers.
 5. Brings the server back with a **new build** and verifies the update flow: the new version waits for approval, then replaces the old cache completely.
 
@@ -178,6 +184,7 @@ Out-of-scope questions (weather, news, recipes, car repair) are declined in 7 of
 - United States focus (911, Poison Help, NWS, FEMA).
 - The app is about 0.74 MB (270 KB compressed), far below the 50–100 MB planning target. That is deliberate: it is text and code only, and nothing essential was cut. There are **no images, diagrams or videos** yet.
 - The handbook is an HTML print view, not a generated binary PDF. Saving as PDF uses the browser's print dialog.
+- Android install help and the one-tap Install button have not been tried on a real Android phone.
 - Automated tests run only on the Chrome/Edge engine. Safari/iPhone has had informal owner testing only (see the table at the top), not the full test plan.
 - Accessibility was tested with automated checks and structural audits. It has **not** been tested with VoiceOver or other assistive technology.
 

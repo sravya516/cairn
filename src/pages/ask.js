@@ -1,7 +1,7 @@
 // Ask Cairn: type a question, get the matching passage from Cairn's own guides.
 // This is NOT a generative AI. Every line shown is copied from a guide, card or checklist already on the device, with its source.
 // It works offline, sends nothing anywhere, and keeps the conversation in memory only (it is gone when the app is closed).
-import { h } from '../utils/dom.js';
+import { h, appendAll } from '../utils/dom.js';
 import { icon } from '../utils/icons.js';
 import { loadContent } from '../services/content.js';
 import { createAssistant } from '../services/assistant/answer.js';
@@ -108,7 +108,7 @@ export async function askPage(_params, ctx) {
     h('label', { class: 'sr-only', for: 'ask-q' }, 'Your question'), input,
     h('button', { class: 'btn', type: 'submit' }, 'Ask'));
 
-  root.append(
+  appendAll(root, 
     h('h1', { tabindex: '-1', id: 'page-title' }, 'Ask Cairn'),
     h('p', { class: 'muted small' }, 'Ask in your own words. Cairn finds the answer in its own guides and shows you the exact text. It is not a live AI, it works offline, and nothing you type leaves this device.'),
     form, status, starters, thread, clearBtn,
@@ -116,7 +116,7 @@ export async function askPage(_params, ctx) {
 
   let data;
   try { data = await getAssistant(); } catch (_) {
-    root.append(h('div', { class: 'notice' }, 'The guides could not be loaded from this device, so questions can’t be answered. ', h('a', { href: '#/storage' }, 'Check offline status'), ' · ', h('a', { href: '#/search' }, 'Search')));
+    appendAll(root, h('div', { class: 'notice' }, 'The guides could not be loaded from this device, so questions can’t be answered. ', h('a', { href: '#/storage' }, 'Check offline status'), ' · ', h('a', { href: '#/search' }, 'Search')));
     form.hidden = true;
     return root;
   }

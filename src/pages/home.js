@@ -1,5 +1,5 @@
 // Home dashboard: status, Emergency Now, search, progress, household summary, quick guides, contacts.
-import { h } from '../utils/dom.js';
+import { h, appendAll } from '../utils/dom.js';
 import { icon } from '../utils/icons.js';
 import { cardLink, statusPill, emergencyNotice } from '../components/ui.js';
 import { themeButton } from '../components/shell.js';
@@ -10,6 +10,8 @@ import { loadPlan, completeness } from '../services/plan.js';
 import { getBookmarks, getRecents, resolveGuides } from '../services/library.js';
 import { telHref } from '../utils/text.js';
 import { progressBar } from './checklists.js';
+import { detectPlatform } from '../utils/platform.js';
+import { canPromptInstall, promptInstall, onInstallChange, isStandalone } from '../services/install.js';
 
 /** Guides most useful under stress, shown as shortcuts. Ids that do not exist are skipped. */
 export const HOME_QUICK = ['water-treatment-overview', 'cpr-aed', 'bleeding-control', 'extended-power-outages', 'water-storage', 'evacuation-planning', 'ventilation-co-safety', 'family-emergency-plan'];
@@ -19,11 +21,6 @@ const STATIC_CONTACTS = [
   { name: 'Poison Help (U.S.)', phone: '1-800-222-1222', note: 'Free, 24 hours' },
   { name: '988 Suicide & Crisis Lifeline (U.S.)', phone: '988', note: 'Call or text, 24 hours' },
 ];
-
-function isStandalone() {
-  return (typeof navigator !== 'undefined' && navigator.standalone === true) || (typeof matchMedia !== 'undefined' && matchMedia('(display-mode: standalone)').matches);
-}
-const isIOS = () => typeof navigator !== 'undefined' && /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 function contactRow(c) {
   const href = telHref(c.phone);
@@ -52,19 +49,24 @@ export async function homePage() {
 
   const root = h('div', { class: 'home' }, hero, emergencyNotice());
 
-  // iPhone install tip (only in Safari tabs, not once installed)
+  // Install card: phones only, in a browser tab (not once installed), until dismissed. Details live on the Install page.
   const tipKey = 'ui:installTipDismissed';
-  if (isIOS() && !isStandalone() && !(await store.get(tipKey, false))) {
+  const phone = detectPlatform().os !== 'desktop';
+  if (phone && !isStandalone() && !(await store.get(tipKey, false))) {
+    const nativeBtn = h('button', { class: 'btn block', type: 'button', hidden: !canPromptInstall(), onclick: async () => { await promptInstall(); } }, icon('download'), 'Install Cairn');
+    onInstallChange(() => { nativeBtn.hidden = !canPromptInstall(); });
     const tip = h('div', { class: 'card install-tip' },
-      h('h2', null, 'Install Cairn on your iPhone'),
-      h('ol', null, h('li', null, 'Tap the Share button in Safari.'), h('li', null, 'Choose “Add to Home Screen”.'), h('li', null, 'Open Cairn from the new icon. It works with no signal.')),
-      h('button', { class: 'btn secondary', type: 'button', onclick: async () => { await store.set(tipKey, true); tip.remove(); } }, 'Got it'));
-    root.append(tip);
+      h('h2', null, 'Add Cairn to your Home Screen'),
+      h('p', null, 'It opens like an app and works with no internet. Free, and takes about a minute.'),
+      nativeBtn,
+      h('a', { class: 'btn secondary block', href: '#/install' }, icon('book'), 'Show me how'),
+      h('button', { class: 'btn secondary block', type: 'button', onclick: async () => { await store.set(tipKey, true); tip.remove(); } }, 'Not now'));
+    appendAll(root, tip);
   }
 
   if (!c) {
-    root.append(h('div', { class: 'notice' }, 'Guides could not be loaded from this device. ', h('a', { href: '#/storage' }, 'Check offline status')));
-    root.append(cardLink({ href: '#/emergency', iconName: 'alert', title: 'Emergency Now', subtitle: 'Calling for help' }));
+    appendAll(root, h('div', { class: 'notice' }, 'Guides could not be loaded from this device. ', h('a', { href: '#/storage' }, 'Check offline status')));
+    appendAll(root, cardLink({ href: '#/emergency', iconName: 'alert', title: 'Emergency Now', subtitle: 'Calling for help' }));
     return root;
   }
 
@@ -75,7 +77,7 @@ export async function homePage() {
   const steps = nextSteps(c.checklists, states, 3);
 
   // Progress
-  root.append(
+  appendAll(root, 
     h('div', { class: 'section-title' }, h('h2', null, 'Your preparedness')),
     h('div', { class: 'card' },
       h('div', { class: 'row-top split' }, h('strong', null, 'Supplies'), h('span', null, `${prog.pct}%`)),
@@ -88,7 +90,7 @@ export async function homePage() {
 
   // Household summary
   const hasPlan = plan.members.length || plan.contacts.length || plan.outOfArea.name;
-  root.append(
+  appendAll(root, 
     h('div', { class: 'section-title' }, h('h2', null, 'My household')),
     h('a', { class: 'card card-link', href: '#/plan' },
       h('span', { class: 'ico' }, icon('plan')),
@@ -99,25 +101,25 @@ export async function homePage() {
 
   // Quick guides
   const quick = HOME_QUICK.map((id) => c.guideById.get(id)).filter(Boolean);
-  root.append(h('div', { class: 'section-title' }, h('h2', null, 'Critical guides'), h('a', { href: '#/guides' }, 'All guides')),
+  appendAll(root, h('div', { class: 'section-title' }, h('h2', null, 'Critical guides'), h('a', { href: '#/guides' }, 'All guides')),
     h('div', { class: 'grid-2 quick' }, quick.map((g) => h('a', { class: 'card quick-card', href: `#/guide/${g.id}` }, h('strong', null, g.title)))));
 
   // Bookmarks and recents
   const bm = resolveGuides(await getBookmarks(store), c.guideById).slice(0, 4);
   const rc = resolveGuides(await getRecents(store), c.guideById).filter((g) => !bm.includes(g)).slice(0, 3);
-  if (bm.length) root.append(h('div', { class: 'section-title' }, h('h2', null, 'Bookmarked')), ...bm.map((g) => cardLink({ href: `#/guide/${g.id}`, iconName: 'star', title: g.title, subtitle: c.categoryById.get(g.category)?.title })));
-  if (rc.length) root.append(h('div', { class: 'section-title' }, h('h2', null, 'Recently viewed')), ...rc.map((g) => cardLink({ href: `#/guide/${g.id}`, iconName: 'book', title: g.title, subtitle: c.categoryById.get(g.category)?.title })));
+  if (bm.length) appendAll(root, h('div', { class: 'section-title' }, h('h2', null, 'Bookmarked')), ...bm.map((g) => cardLink({ href: `#/guide/${g.id}`, iconName: 'star', title: g.title, subtitle: c.categoryById.get(g.category)?.title })));
+  if (rc.length) appendAll(root, h('div', { class: 'section-title' }, h('h2', null, 'Recently viewed')), ...rc.map((g) => cardLink({ href: `#/guide/${g.id}`, iconName: 'book', title: g.title, subtitle: c.categoryById.get(g.category)?.title })));
 
   // Contacts
   const mine = [];
   if (plan.outOfArea.name) mine.push({ name: plan.outOfArea.name, phone: plan.outOfArea.phone, note: 'Out-of-area contact' });
   for (const k of plan.contacts.slice(0, 4)) mine.push({ name: k.name, phone: k.phone, note: k.relationship });
-  root.append(h('div', { class: 'section-title' }, h('h2', null, 'Important contacts')),
+  appendAll(root, h('div', { class: 'section-title' }, h('h2', null, 'Important contacts')),
     h('ul', { class: 'card contacts' }, [...STATIC_CONTACTS, ...mine].map(contactRow)),
     mine.length ? null : h('p', { class: 'muted small' }, h('a', { href: '#/plan/contacts' }, 'Add your own emergency contacts'), ' to show them here.'));
 
   // Tools
-  root.append(h('div', { class: 'section-title' }, h('h2', null, 'Tools')),
+  appendAll(root, h('div', { class: 'section-title' }, h('h2', null, 'Tools')),
     cardLink({ href: '#/checklists', iconName: 'check', title: 'Checklists', subtitle: `${c.checklists.length} lists: kits, go-bags, hazards` }),
     cardLink({ href: '#/calculators', iconName: 'calc', title: 'Calculators', subtitle: 'Water, food, power, battery, fuel, budget, storage' }),
     cardLink({ href: '#/handbook', iconName: 'print', title: 'Printable handbook', subtitle: 'Save as PDF or print. Works offline.' }),

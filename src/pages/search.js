@@ -1,4 +1,4 @@
-import { h } from '../utils/dom.js';
+import { h, appendAll } from '../utils/dom.js';
 import { loadContent, guideText } from '../services/content.js';
 import { SearchIndex, buildDocs } from '../services/search/engine.js';
 import { calculatorDocs } from '../calculators/registry.js';
@@ -34,11 +34,11 @@ export async function searchPage(_params, ctx) {
   const list = h('ul', { class: 'results' });
 
   const askHint = h('p', { class: 'muted small' }, 'Have a full question? ', h('a', { href: '#/ask' }, 'Ask Cairn'), '.');
-  root.append(h('h1', { tabindex: '-1', id: 'page-title' }, 'Search'), input, suggest, chips, status, list, askHint);
+  appendAll(root, h('h1', { tabindex: '-1', id: 'page-title' }, 'Search'), input, suggest, chips, status, list, askHint);
 
   let data;
   try { data = await getIndex(); } catch (e) {
-    root.append(h('div', { class: 'notice' }, 'Search data could not be loaded from this device. ', h('a', { href: '#/storage' }, 'Check offline status')));
+    appendAll(root, h('div', { class: 'notice' }, 'Search data could not be loaded from this device. ', h('a', { href: '#/storage' }, 'Check offline status')));
     return root;
   }
   const { content, index } = data;

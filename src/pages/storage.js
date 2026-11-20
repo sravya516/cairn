@@ -55,7 +55,7 @@ export function storagePage() {
     h('div', { class: 'card' },
       h('h2', null, 'iPhone and iOS limits'),
       h('ul', null,
-        h('li', null, 'Open Cairn in Safari, tap Share, then “Add to Home Screen”. Launch it from the Home Screen icon.'),
+        h('li', null, 'Add Cairn to your Home Screen and open it from the icon. ', h('a', { href: '#/install' }, 'Step-by-step help for iPhone and Android')),
         h('li', null, 'Run it once while online and wait for “Offline ready” above. iOS only stores the offline copy after that first visit.'),
         h('li', null, 'iOS can clear website data if the phone is critically low on storage, or for sites used in Safari tabs but not installed. Installed Home Screen apps are treated more generously, but this is not a guarantee.'),
         h('li', null, 'Deleting the Home Screen app or clearing Safari website data erases your saved plan and checklist progress. Export a backup regularly.'),

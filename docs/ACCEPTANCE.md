@@ -10,9 +10,10 @@ Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self
 |---|-----------|--------|----------------------|
 | 1 | Professional, polished user interface | 🟡 | Reviewed in screenshots at phone width and checked for overflow at 390, 768 and 1280 px. No user testing. Subjective. |
 | 2 | Installable on iPhone through Safari | ⚠️ | Manifest, 180/192/512 icons (opaque, as iOS requires), maskable icon, iOS meta tags and 10 launch images are present and tested (`tests/pwa.test.js`). Owner reports it installed and worked on a real iPhone (no device, iOS version or step log recorded). Run [IPHONE_TEST_PLAN.md](IPHONE_TEST_PLAN.md) section A to log it properly. |
+| 2b | Installable on Android (extra) | 🟡 | Install page with step-by-step help for iPhone (both Share-button layouts), Android and computers; one-tap Install button via `beforeinstallprompt`. Tested: manifest meets Chrome's install requirements, platform detection, steps text, the button calls the browser's install prompt (simulated event, desktop Chrome/Edge engine). **Not tested on a real Android phone.** |
 | 3 | Works as a standalone home-screen application | ⚠️ | `display: standalone`, safe-area padding and iOS standalone meta are in place. Owner reports it works on a real iPhone; not logged in detail. |
 | 4 | Opens without internet after initial caching | 🟡 | e2e: server killed (port refuses connections) and browser offline, then cold start succeeds, at root and at `/cairn/`. Chrome/Edge engine only. Safari's service-worker behavior is not tested. |
-| 5 | All essential emergency content available offline | ✅ | 67 files pre-cached; the status screen and e2e verify every file against its SHA-256. All 247 screens open offline. |
+| 5 | All essential emergency content available offline | ✅ | 70 files pre-cached; the status screen and e2e verify every file against its SHA-256. All 248 screens open offline. |
 | 6 | Comprehensive emergency-preparedness encyclopedia | 🟡 | 146 guides, about 37,000 words, 12 categories. Some listed topics are merged into one guide (see *Deviations*); a test confirms ~100 topic queries find the right guide. Not professionally reviewed. |
 | 7 | Detailed natural-disaster instructions | ✅ | All 15 listed disasters, each with the ten required sections in order (enforced by a test). Content accuracy: see criterion 8 caveat. |
 | 8 | First-aid and medical reference | ⚠️ | 18 medical guides plus emergency cards, with warnings, 911 guidance and no doses (tested). **Not professionally reviewed and no source verified against a live page.** |
@@ -33,7 +34,7 @@ Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self
 | 22 | No unnecessary data collection | ✅ | No analytics, tracking or network calls; data stays on the device. |
 | 23 | GitHub Pages deployment ready | 🟡 | Relative URLs, hash routing and the service worker verified at a `/cairn/` subpath locally **and live**: the workflow ran on GitHub (tests, Linux browser test, deploy all passed), and every file in the live cache list returns 200 with a matching checksum at https://sravya516.github.io/cairn/. Not yet opened on a real iPhone. |
 | 24 | Automated tests passing | ✅ | See *Test results* below. |
-| 25 | Offline functionality verified | 🟡 | Yes in Chrome/Edge (71 checks). **Not in Safari/iOS.** |
+| 25 | Offline functionality verified | 🟡 | Yes in Chrome/Edge (76 checks). **Not in Safari/iOS.** |
 | 26 | Complete documentation | ✅ | README, CONTRIBUTING, this audit, the iPhone test plan, CONTENT_SOURCES. |
 
 ## The sixteen required test areas
@@ -45,7 +46,7 @@ Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self
 | 3 | Manifest validity | ✅ | `pwa.test.js`: name, scope, icons exist, maskable icon, relative URLs |
 | 4 | Service worker registration | ✅ | e2e; scope equals the deploy path (root and `/cairn/`) |
 | 5 | Offline startup | 🟡 | Server killed, browser offline, cold reload (Chrome/Edge engine) |
-| 6 | Offline navigation | ✅ | All 247 screens opened and audited offline |
+| 6 | Offline navigation | ✅ | All 248 screens opened and audited offline |
 | 7 | Offline search | ✅ | e2e plus ~100 coverage queries in unit tests |
 | 8 | Offline checklist functionality | ✅ | e2e toggle, add, persist across reload |
 | 9 | IndexedDB persistence | ✅ | e2e writes and reads across reloads and a simulated outage |
@@ -55,13 +56,13 @@ Legend: ✅ met and verified · 🟡 met in the Chrome/Edge engine only, or self
 | 13 | PDF generation | 🟡 | Real PDF from Chrome's engine (offline). iOS path untested |
 | 14 | Cache updates | ✅ | e2e: new build detected, waits for approval, old cache retained until accepted, then replaced entirely |
 | 15 | Error handling | ✅ | Invalid input on forms and calculators; corrupted saved data across 11 screens; missing content fallback for Emergency Now |
-| 16 | Mobile responsiveness | 🟡 | No horizontal overflow on 247 screens at 390 px and on sample screens at 768 and 1280 px. **Not tested on real devices** or other screen sizes. |
+| 16 | Mobile responsiveness | 🟡 | No horizontal overflow on 248 screens at 390 px and on sample screens at 768 and 1280 px. **Not tested on real devices** or other screen sizes. |
 
 ### Test results at the time of writing
 
 - `npm test`: all unit, content, accessibility, PWA, security and documentation tests pass.
-- `npm run e2e`: 63 of 71 checks pass at the site root.
-- `npm run e2e:subpath`: 63 of 71 checks pass at `/cairn/`.
+- `npm run e2e`: 63 of 76 checks pass at the site root.
+- `npm run e2e:subpath`: 63 of 76 checks pass at `/cairn/`.
 - GitHub Actions: the first run on push passed all three jobs (tests and build; Linux real-browser offline test; deploy). The live site's file list was checked against its checksums. Only one run has happened so far.
 
 ## Bugs found by this testing (and fixed)
